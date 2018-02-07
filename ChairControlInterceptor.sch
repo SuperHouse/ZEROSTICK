@@ -2405,12 +2405,12 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 <part name="X1" library="SparkFun-Connectors" deviceset="DB9" device="MALE" value="INPUT"/>
 <part name="X2" library="SparkFun-Connectors" deviceset="DB9" device="FEMALE" value="OUTPUT"/>
 <part name="GND2" library="freetronics" deviceset="GND" device=""/>
-<part name="R1" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R2" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R3" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R4" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R5" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R6" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
+<part name="R1" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R2" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R3" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R4" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R5" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R6" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
 <part name="GND3" library="freetronics" deviceset="GND" device=""/>
 <part name="GND4" library="freetronics" deviceset="GND" device=""/>
 <part name="GND5" library="freetronics" deviceset="GND" device=""/>
@@ -2419,13 +2419,13 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 <part name="GND6" library="freetronics" deviceset="GND" device=""/>
 <part name="X4" library="SparkFun-Connectors" deviceset="DB9" device="MALE" value="INPUT"/>
 <part name="GND7" library="freetronics" deviceset="GND" device=""/>
-<part name="R7" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R8" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
+<part name="R7" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R8" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
 <part name="GND8" library="freetronics" deviceset="GND" device=""/>
-<part name="R9" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R10" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R11" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
-<part name="R12" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="39K 1%"/>
+<part name="R9" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R10" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R11" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
+<part name="R12" library="freetronics-jon" deviceset="RESISTOR" device="0603" value="47K 1%"/>
 <part name="GND9" library="freetronics" deviceset="GND" device=""/>
 <part name="GND10" library="freetronics" deviceset="GND" device=""/>
 </parts>
