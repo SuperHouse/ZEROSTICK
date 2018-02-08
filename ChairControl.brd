@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.0393700787" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1279,6 +1279,23 @@ design rules under a new name.</description>
 <wire x1="84.51" y1="33.49" x2="84.51" y2="30.762" width="0.3048" layer="1"/>
 </signal>
 </signals>
+<errors>
+<approved hash="1,20,dc64f494f158d9a8"/>
+<approved hash="1,20,e624ced4f1d8d928"/>
+<approved hash="1,20,fae64a164d4cfdbc"/>
+<approved hash="1,20,fc264cd64c8cfc7c"/>
+<approved hash="1,20,d89270627020d8d0"/>
+<approved hash="1,20,e669de99d140e9b0"/>
+<approved hash="1,20,e88dd07dd03ce8cc"/>
+<approved hash="1,20,068ece7ed0be184e"/>
+<approved hash="1,20,17fedf0ed10e19fe"/>
+<approved hash="1,20,128ee27ee23e12ce"/>
+<approved hash="1,20,fe364ec64cccfc3c"/>
+<approved hash="1,20,fa824a724a30fac0"/>
+<approved hash="5,1,b7805d891d9a6397"/>
+<approved hash="5,1,1a16717dbddd174d"/>
+<approved hash="5,1,42ba0f1f476ecb30"/>
+</errors>
 </board>
 </drawing>
 <compatibility>
