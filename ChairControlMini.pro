@@ -1,6 +1,6 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /Users/jon/Dropbox/eagle/ChairControlInterceptor.brd
+Job           : /Users/jon/Dropbox/eagle/ChairControlMini.brd
 
 Start at      : 16:59:26 (30/1/18)
 End at        : 10:00:00 (1/1/70)
