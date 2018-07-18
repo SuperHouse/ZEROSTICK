@@ -1,6 +1,6 @@
-Chair Control Breakout
-=======================
-Copyright 2018 SuperHouse Pty Ltd <www.superhouse.tv>  
+Chair Control Breakout Mini
+===========================
+Copyright 2018 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
 Designed by Jonathan Oxer
 
 Connects between an electric wheelchair input device and the chair
@@ -12,26 +12,20 @@ signals, preventing it from moving while the input is being used for
 another purpose such as controlling a computer or remote control
 device.
 
-The Arduino can send the output to either a connected USB host such
-as a computer, or to the trainer port on a Flysky radio remote control
-so the wheelchair controls can be used to fly a drone or drive a
-remote control car.
-
-A second input device can be connected simultaneously, so that a total
-of four axes can be read. For example, a pair of low-force hall-effect
-joysticks attached to a wheelchair could be used to fly a drone.
+The breakout can send the output to either a connected USB host such
+as a computer, or other devices via CAN bus so the wheelchair controls
+can be used to fly a drone or drive a remote control car.
 
 Features:
 
- * 2 x input device connections.
+ * 1 x input device connection.
  * 1 x input device pass-through output
- * 1 x mini-DIN 4 pin output for PPM connection to Flysky transmitter
- * Mounting headers for an Arduino
- * Derives 12V power from the host wheelchair controller
+ * CAN bus
+ * Can derives 12V power from the host wheelchair controller or separately
 
 More information is available at:
 
-  http://www.superhouse.tv/chaircontrol
+  http://www.superhouse.tv/cbmini
 
 
 INSTALLATION

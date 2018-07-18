@@ -1,0 +1,14 @@
+* Replace CAN header with JST GH 4-circuit (1.25mm pitch) x 2
+
+* The CAN bus should have 24V on it (to match chair standard) or 5V (to
+  match Dronecode Autopilot Connector Standard) but we only have either
+  12V available from the chair or 5V from our own regulator UNLESS we
+  take a raw 24V input from the chair separately. Decide what to do! I'm
+  leaning toward taking a separate 24V input from the chair and passing
+  that down the cable. That way it doesn't matter if multiple modules
+  supply 24V to the bus, because they're all sourcing it from the same
+  place. This may mean modifying the board to add a header for a 24V
+  input, unless it's just injected at the header intended for a pin
+  jumper to enable 12V bus power right now.
+
+* Make a sub-board for connecting the CAN connectors in the case.
