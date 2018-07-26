@@ -6002,7 +6002,7 @@ settle.</text>
 <text x="106.68" y="119.38" size="2.54" layer="94" ratio="12">ICSP Header</text>
 <text x="185.42" y="119.38" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">Chair Control Breakout Mini</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V1.0 (2018-07-10)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V1.1 (2018-07-26)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: CCMINI</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2018 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -6912,6 +6912,11 @@ settle.</text>
 <label x="231.14" y="38.1" size="1.778" layer="95"/>
 <pinref part="U$11" gate="G$1" pin="PD1(INT1/SDA)"/>
 </segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="!INT"/>
+<wire x1="73.66" y1="53.34" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
+<label x="76.2" y="53.34" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="D3_SCL" class="0">
 <segment>
@@ -6968,13 +6973,6 @@ settle.</text>
 <wire x1="68.58" y1="33.02" x2="71.12" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="71.12" y1="33.02" x2="71.12" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="INT" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="!INT"/>
-<wire x1="73.66" y1="53.34" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
-<label x="76.2" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$18" class="0">
