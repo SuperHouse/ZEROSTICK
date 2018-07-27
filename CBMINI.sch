@@ -5972,7 +5972,7 @@ unwanted messages, thereby reducing the host MCUs overhead. The MCP2515 interfac
 <part name="R17" library="freetronics-master-v1.1" deviceset="RESISTOR" device="0603" value="10K"/>
 <part name="U$10" library="SparkFun" deviceset="5V" device=""/>
 <part name="C7" library="freetronics-master-v1.1" deviceset="CAP" device="0603" value="15pF"/>
-<part name="XTL2" library="freetronics-jon" deviceset="CRYSTAL-GND" device="3X2" value="8MHz"/>
+<part name="XTL2" library="freetronics-jon" deviceset="CRYSTAL-GND" device="3X2" value="16MHz"/>
 <part name="C8" library="freetronics-master-v1.1" deviceset="CAP" device="0603" value="15pF"/>
 <part name="JP1" library="freetronics-jon" deviceset="M04" device="PTH" value="CAN"/>
 <part name="GND6" library="SparkFun" deviceset="GND" device=""/>
