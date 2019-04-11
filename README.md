@@ -1,6 +1,6 @@
 Chair Control Breakout Mini
 ===========================
-Copyright 2018 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
+Copyright 2018-2019 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
 Designed by Jonathan Oxer
 
 Connects between an electric wheelchair input device and the chair
