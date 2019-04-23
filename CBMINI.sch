@@ -6017,7 +6017,7 @@ the value to settle.</text>
 <text x="101.6" y="30.48" size="2.54" layer="94" ratio="12">ICSP Header</text>
 <text x="185.42" y="119.38" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">Chair Control Breakout Mini</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V2.0 (2019-04-02)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V2.1 (2019-04-23)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: CBMINI</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2018-2019 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -6041,7 +6041,7 @@ the value to settle.</text>
 <wire x1="137.16" y1="38.1" x2="96.52" y2="38.1" width="0.1524" layer="97" style="longdash"/>
 <wire x1="137.16" y1="38.1" x2="137.16" y2="5.08" width="0.1524" layer="97" style="longdash"/>
 <text x="45.72" y="96.52" size="1.778" layer="97">(PIN4)</text>
-<text x="45.72" y="93.98" size="1.778" layer="97">(PIN6)</text>
+<text x="45.72" y="93.98" size="1.778" layer="97">(PIN5)</text>
 </plain>
 <instances>
 <instance part="X1" gate="G$1" x="33.02" y="142.24" smashed="yes" rot="MR0">
@@ -6770,9 +6770,13 @@ the value to settle.</text>
 <segment>
 <pinref part="X1" gate="G$1" pin="5"/>
 <pinref part="X2" gate="G$1" pin="5"/>
-<wire x1="40.64" y1="137.16" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="137.16" x2="116.84" y2="137.16" width="0.1524" layer="91"/>
 <label x="45.72" y="137.16" size="1.778" layer="95"/>
 <label x="99.06" y="137.16" size="1.778" layer="95"/>
+<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="137.16" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="134.62" x2="116.84" y2="137.16" width="0.1524" layer="91"/>
+<junction x="116.84" y="137.16"/>
 </segment>
 </net>
 <net name="PIN6" class="0">
@@ -6783,15 +6787,9 @@ the value to settle.</text>
 <wire x1="15.24" y1="170.18" x2="144.78" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="170.18" x2="144.78" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="X2" gate="G$1" pin="6"/>
-<wire x1="144.78" y1="144.78" x2="137.16" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="144.78" x2="134.62" y2="144.78" width="0.1524" layer="91"/>
 <label x="17.78" y="144.78" size="1.778" layer="95"/>
 <label x="137.16" y="144.78" size="1.778" layer="95"/>
-<pinref part="R21" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="144.78" x2="134.62" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="134.62" x2="116.84" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="154.94" x2="137.16" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="154.94" x2="137.16" y2="144.78" width="0.1524" layer="91"/>
-<junction x="137.16" y="144.78"/>
 </segment>
 </net>
 <net name="C12V" class="0">
