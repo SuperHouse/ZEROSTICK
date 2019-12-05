@@ -1,31 +1,22 @@
-Chair Control Breakout Mini
-===========================
-Copyright 2018-2019 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
+SuperButton Assistive Technology Button
+========================================
+Copyright 2019 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
 Designed by Jonathan Oxer
 
-Connects between an electric wheelchair input device and the chair
-controller, so that the input device can be read by an Arduino and
-redirected to another system.
-
-The output can be isolated so that the chair won't receive the input
-signals, preventing it from moving while the input is being used for
-another purpose such as controlling a computer or remote control
-device.
-
-The breakout can send the output to either a connected USB host such
-as a computer, or other devices via CAN bus so the wheelchair controls
-can be used to fly a drone or drive a remote control car.
+Load-cell based button that can have the required activation force
+adjusted in software, to tune it based on the needs of the user.
 
 Features:
 
- * 1 x input device connection.
- * 1 x input device pass-through output
- * CAN bus
- * Can derives 12V power from the host wheelchair controller or separately
+ * 1 x input connection for a load-cell based button
+ * 1 x USB connection for power or to emulate an input device
+ * 1 x switched output (either N.O. or N.C.) to control other devices
+ * 128x32 OLED to show current force reading and activation threshold
+ * Knob to adjust activation threshold
 
 More information is available at:
 
-  http://www.superhouse.tv/cbmini
+  http://www.superhouse.tv/sb
 
 
 INSTALLATION
