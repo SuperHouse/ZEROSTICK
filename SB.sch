@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1823,22 +1823,25 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 <wire x1="0" y1="1.6" x2="5" y2="1.6" width="0.2032" layer="21"/>
 <wire x1="5" y1="1.6" x2="5" y2="2.4" width="0.2032" layer="21"/>
 </package>
-<package name="RJ10" urn="urn:adsk.eagle:footprint:15628372/1" library_version="155">
-<hole x="-5" y="0" drill="2.4"/>
-<hole x="5" y="0" drill="2.4"/>
-<pad name="P$1" x="1.53" y="2.3" drill="0.9"/>
-<pad name="P$2" x="0.51" y="4.84" drill="0.9"/>
-<pad name="P$3" x="-0.51" y="2.3" drill="0.9"/>
-<pad name="P$4" x="-1.53" y="4.84" drill="0.9"/>
-<wire x1="-5" y1="-6" x2="5" y2="-6" width="0.127" layer="51"/>
-<wire x1="-5" y1="7" x2="5" y2="7" width="0.127" layer="51"/>
-<wire x1="-5" y1="7" x2="-5" y2="-6" width="0.127" layer="51"/>
-<wire x1="5" y1="-6" x2="5" y2="7" width="0.127" layer="51"/>
-<wire x1="-5" y1="2" x2="-5" y2="7" width="0.2" layer="21"/>
-<wire x1="-5" y1="7" x2="5" y2="7" width="0.2" layer="21"/>
-<wire x1="5" y1="7" x2="5" y2="2" width="0.2" layer="21"/>
-<wire x1="-5" y1="-2" x2="-5" y2="-3" width="0.2" layer="21"/>
-<wire x1="5" y1="-3" x2="5" y2="-2" width="0.2" layer="21"/>
+<package name="RJ12" urn="urn:adsk.eagle:footprint:15744401/1" library_version="158">
+<description>RJ12 6/6 PCB mount socket</description>
+<hole x="-6" y="0" drill="2.4"/>
+<hole x="6" y="0" drill="2.4"/>
+<pad name="5" x="1.525" y="2.3" drill="0.9"/>
+<pad name="6" x="2.54" y="4.84" drill="0.9"/>
+<pad name="3" x="-0.501" y="2.3" drill="0.9"/>
+<pad name="4" x="0.501" y="4.84" drill="0.9"/>
+<pad name="1" x="-2.54" y="2.3" drill="0.9"/>
+<pad name="2" x="-1.525" y="4.84" drill="0.9"/>
+<wire x1="-6.1" y1="-6" x2="6.1" y2="-6" width="0.127" layer="51"/>
+<wire x1="-6.1" y1="9" x2="6.1" y2="9" width="0.127" layer="51"/>
+<wire x1="-6.1" y1="9" x2="-6.1" y2="-6" width="0.127" layer="51"/>
+<wire x1="6.1" y1="-6" x2="6.1" y2="9" width="0.127" layer="51"/>
+<wire x1="-6.1" y1="2" x2="-6.1" y2="9" width="0.2" layer="21"/>
+<wire x1="-6.1" y1="9" x2="6.1" y2="9" width="0.2" layer="21"/>
+<wire x1="6.1" y1="9" x2="6.1" y2="2" width="0.2" layer="21"/>
+<wire x1="-6.1" y1="-2" x2="-6.1" y2="-3" width="0.2" layer="21"/>
+<wire x1="6.1" y1="-3" x2="6.1" y2="-2" width="0.2" layer="21"/>
 <text x="0" y="-2" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-4" size="1.27" layer="27" align="bottom-center">&gt;VALUE</text>
 </package>
@@ -1929,9 +1932,10 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 <packageinstance name="1X03-KF2510"/>
 </packageinstances>
 </package3d>
-<package3d name="RJ10" urn="urn:adsk.eagle:package:15628373/2" type="model" library_version="156">
+<package3d name="RJ12" urn="urn:adsk.eagle:package:15744402/2" type="model" library_version="158">
+<description>RJ12 6/6 PCB mount socket</description>
 <packageinstances>
-<packageinstance name="RJ10"/>
+<packageinstance name="RJ12"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1968,22 +1972,6 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 <pin name="PIN2" x="-5.08" y="7.62" visible="pad" length="short"/>
 <pin name="PIN1" x="-5.08" y="-7.62" visible="pad" length="short"/>
 </symbol>
-<symbol name="M04" urn="urn:adsk.eagle:symbol:11818435/1" library_version="154">
-<wire x1="3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="5.08" x2="2.54" y2="5.08" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
-<wire x1="-2.54" y1="10.16" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="3.81" y1="-2.54" x2="3.81" y2="10.16" width="0.4064" layer="94"/>
-<wire x1="-2.54" y1="10.16" x2="3.81" y2="10.16" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="7.62" x2="2.54" y2="7.62" width="0.6096" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.54" y="10.922" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="3" x="7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="4" x="7.62" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
 <symbol name="AUDIO-JACK-PJ321" urn="urn:adsk.eagle:symbol:11973212/1" library_version="154">
 <wire x1="-1.27" y1="-2.54" x2="0" y2="-1.27" width="0.1524" layer="94"/>
 <wire x1="0" y1="-1.27" x2="1.27" y2="-2.54" width="0.1524" layer="94"/>
@@ -2014,6 +2002,27 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 <pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="3" x="7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="M06" urn="urn:adsk.eagle:symbol:11790967/1" library_version="158">
+<description>M06</description>
+<wire x1="3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="2.54" y2="5.08" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
+<wire x1="-2.54" y1="15.24" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="15.24" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="15.24" x2="3.81" y2="15.24" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="10.16" x2="2.54" y2="10.16" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="7.62" x2="2.54" y2="7.62" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="12.7" x2="2.54" y2="12.7" width="0.6096" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="16.002" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="3" x="7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="7.62" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="5" x="7.62" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="6" x="7.62" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2278,21 +2287,22 @@ Standard 1x3 header, and screw terminal variations</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RJ10" urn="urn:adsk.eagle:component:15628374/2" prefix="J" library_version="156">
-<description>RJ10 jack (4P4C)</description>
+<deviceset name="RJ12" urn="urn:adsk.eagle:component:15744403/2" library_version="158">
 <gates>
-<gate name="G$1" symbol="M04" x="0" y="0"/>
+<gate name="G$1" symbol="M06" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-WURTH" package="RJ10">
+<device name="" package="RJ12">
 <connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-<connect gate="G$1" pin="2" pad="P$2"/>
-<connect gate="G$1" pin="3" pad="P$3"/>
-<connect gate="G$1" pin="4" pad="P$4"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:15628373/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:15744402/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3248,7 +3258,6 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="J3" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="AUDIO-JACK-PJ321" device="" package3d_urn="urn:adsk.eagle:package:11973214/2"/>
 <part name="J4" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="M03" device="-PIN" package3d_urn="urn:adsk.eagle:package:11815967/3" value="NO/NC"/>
 <part name="GND5" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="J5" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="RJ10" device="-WURTH" package3d_urn="urn:adsk.eagle:package:15628373/2"/>
 <part name="U$10" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$11" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$12" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
@@ -3261,7 +3270,6 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="U$19" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$20" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$24" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
-<part name="U$26" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$27" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="GND3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="C7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0805" package3d_urn="urn:adsk.eagle:package:7066318/4" value="10uF"/>
@@ -3269,13 +3277,18 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="S2" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3" value="Trigger Level"/>
 <part name="GND6" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="GND2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
+<part name="J2" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="RJ12" device="" package3d_urn="urn:adsk.eagle:package:15744402/2"/>
+<part name="Q2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-323" package3d_urn="urn:adsk.eagle:package:7066313/2" value="RJU003N03"/>
+<part name="GND12" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
+<part name="R2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="150R"/>
+<part name="R3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <frame x1="0" y1="0" x2="248.92" y2="185.42" columns="8" rows="5" layer="94"/>
-<text x="142.24" y="63.5" size="2.54" layer="94" ratio="12">ICSP Header</text>
-<text x="88.9" y="170.18" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
+<text x="144.78" y="63.5" size="2.54" layer="94" ratio="12">ICSP Header</text>
+<text x="86.36" y="170.18" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">SuperButton Assistive Technology Button</text>
 <text x="172.72" y="14.478" size="1.778" layer="94">V1.0 (2019-12-05)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: SB</text>
@@ -3287,9 +3300,9 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <frame x1="139.7" y1="12.7" x2="170.18" y2="17.78" columns="8" rows="5" layer="94"/>
 <frame x1="170.18" y1="12.7" x2="200.66" y2="17.78" columns="8" rows="5" layer="94"/>
 <frame x1="139.7" y1="5.08" x2="243.84" y2="17.78" columns="0" rows="0" layer="94" border-left="no" border-top="no" border-right="no" border-bottom="no"/>
-<wire x1="137.16" y1="68.58" x2="137.16" y2="35.56" width="0.254" layer="97" style="longdash"/>
-<wire x1="185.42" y1="68.58" x2="137.16" y2="68.58" width="0.254" layer="97" style="longdash"/>
-<wire x1="185.42" y1="68.58" x2="185.42" y2="35.56" width="0.254" layer="97" style="longdash"/>
+<wire x1="139.7" y1="68.58" x2="139.7" y2="35.56" width="0.254" layer="97" style="longdash"/>
+<wire x1="187.96" y1="68.58" x2="139.7" y2="68.58" width="0.254" layer="97" style="longdash"/>
+<wire x1="187.96" y1="68.58" x2="187.96" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="121.92" x2="76.2" y2="121.92" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="121.92" x2="76.2" y2="60.96" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="60.96" x2="10.16" y2="60.96" width="0.254" layer="97" style="longdash"/>
@@ -3300,7 +3313,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <wire x1="76.2" y1="55.88" x2="76.2" y2="15.24" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="15.24" x2="10.16" y2="55.88" width="0.254" layer="97" style="longdash"/>
-<wire x1="137.16" y1="35.56" x2="185.42" y2="35.56" width="0.254" layer="97" style="longdash"/>
+<wire x1="139.7" y1="35.56" x2="187.96" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <text x="195.58" y="63.5" size="2.54" layer="94">128x32 OLED</text>
 <wire x1="190.5" y1="68.58" x2="241.3" y2="68.58" width="0.254" layer="97" style="longdash"/>
 <wire x1="241.3" y1="68.58" x2="241.3" y2="35.56" width="0.254" layer="97" style="longdash"/>
@@ -3310,18 +3323,18 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <wire x1="76.2" y1="175.26" x2="76.2" y2="127" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="127" x2="10.16" y2="127" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="127" x2="10.16" y2="175.26" width="0.254" layer="97" style="longdash"/>
-<wire x1="83.82" y1="175.26" x2="241.3" y2="175.26" width="0.254" layer="97" style="longdash"/>
+<wire x1="81.28" y1="175.26" x2="241.3" y2="175.26" width="0.254" layer="97" style="longdash"/>
 <wire x1="241.3" y1="175.26" x2="241.3" y2="73.66" width="0.254" layer="97" style="longdash"/>
-<wire x1="241.3" y1="73.66" x2="83.82" y2="73.66" width="0.254" layer="97" style="longdash"/>
-<wire x1="83.82" y1="73.66" x2="83.82" y2="175.26" width="0.254" layer="97" style="longdash"/>
-<text x="88.9" y="63.5" size="2.54" layer="94">Load Cell</text>
-<wire x1="83.82" y1="68.58" x2="132.08" y2="68.58" width="0.254" layer="97" style="longdash"/>
-<wire x1="132.08" y1="68.58" x2="132.08" y2="35.56" width="0.254" layer="97" style="longdash"/>
-<wire x1="132.08" y1="35.56" x2="83.82" y2="35.56" width="0.254" layer="97" style="longdash"/>
-<wire x1="83.82" y1="35.56" x2="83.82" y2="68.58" width="0.254" layer="97" style="longdash"/>
-<text x="88.9" y="50.8" size="1.778" layer="97">Cell SCK</text>
-<text x="88.9" y="48.26" size="1.778" layer="97">Cell DOUT</text>
-<text x="86.36" y="7.62" size="1.778" layer="97">Pin Assignments
+<wire x1="241.3" y1="73.66" x2="81.28" y2="73.66" width="0.254" layer="97" style="longdash"/>
+<wire x1="81.28" y1="73.66" x2="81.28" y2="175.26" width="0.254" layer="97" style="longdash"/>
+<text x="86.36" y="63.5" size="2.54" layer="94">Load Cell</text>
+<wire x1="81.28" y1="68.58" x2="137.16" y2="68.58" width="0.254" layer="97" style="longdash"/>
+<wire x1="137.16" y1="68.58" x2="137.16" y2="7.62" width="0.254" layer="97" style="longdash"/>
+<wire x1="137.16" y1="7.62" x2="81.28" y2="7.62" width="0.254" layer="97" style="longdash"/>
+<wire x1="81.28" y1="7.62" x2="81.28" y2="68.58" width="0.254" layer="97" style="longdash"/>
+<text x="83.82" y="45.72" size="1.778" layer="97">HX711 DOUT</text>
+<text x="83.82" y="53.34" size="1.778" layer="97">HX711 SCK</text>
+<text x="104.14" y="139.7" size="1.778" layer="97">Pin Assignments
 A0: Rotary encoder button (enable pull-up)
 D0: Rotary encoder A
 D1: Rotary encoder B
@@ -3330,12 +3343,18 @@ D3: I2C SCL
 D4: HX711 DOUT
 D5: HX711 SCK
 D6: Relay
+D12: Haptic feedback
 D13: LED</text>
 <text x="44.45" y="97.155" size="1.27" layer="97">NO</text>
 <text x="44.45" y="99.695" size="1.27" layer="97">NC</text>
 <text x="147.32" y="27.94" size="1.778" layer="97">To Do:
 RJ12 connector for haptic connection
 FET to drive haptic device</text>
+<text x="83.82" y="55.88" size="1.778" layer="97">Haptic -</text>
+<text x="83.82" y="50.8" size="1.778" layer="97">Haptic +</text>
+<text x="83.82" y="48.26" size="1.778" layer="97">5V</text>
+<text x="83.82" y="43.18" size="1.778" layer="97">GND</text>
+<text x="88.9" y="27.94" size="1.27" layer="97">Haptic Feedback</text>
 </plain>
 <instances>
 <instance part="GND7" gate="1" x="147.32" y="154.94" smashed="yes">
@@ -3486,11 +3505,11 @@ FET to drive haptic device</text>
 <attribute name="NAME" x="36.83" y="75.1586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="36.83" y="72.898" size="1.778" layer="96"/>
 </instance>
-<instance part="U$7" gate="G$1" x="116.84" y="55.88" smashed="yes">
-<attribute name="VALUE" x="115.824" y="59.436" size="1.778" layer="96"/>
+<instance part="U$7" gate="G$1" x="114.3" y="58.42" smashed="yes">
+<attribute name="VALUE" x="113.284" y="61.976" size="1.778" layer="96"/>
 </instance>
-<instance part="GND4" gate="1" x="116.84" y="40.64" smashed="yes">
-<attribute name="VALUE" x="114.3" y="38.1" size="1.778" layer="96"/>
+<instance part="GND4" gate="1" x="129.54" y="38.1" smashed="yes">
+<attribute name="VALUE" x="127" y="35.56" size="1.778" layer="96"/>
 </instance>
 <instance part="J3" gate="G$1" x="66.04" y="101.6" smashed="yes" rot="R180">
 <attribute name="NAME" x="71.12" y="98.552" size="1.778" layer="95" rot="R180"/>
@@ -3502,10 +3521,6 @@ FET to drive haptic device</text>
 </instance>
 <instance part="GND5" gate="1" x="43.18" y="66.04" smashed="yes">
 <attribute name="VALUE" x="40.64" y="63.5" size="1.778" layer="96"/>
-</instance>
-<instance part="J5" gate="G$1" x="104.14" y="53.34" smashed="yes" rot="MR180">
-<attribute name="VALUE" x="99.06" y="58.42" size="1.778" layer="96" rot="MR180"/>
-<attribute name="NAME" x="101.6" y="42.418" size="1.778" layer="95" rot="MR180"/>
 </instance>
 <instance part="U$10" gate="G$1" x="223.52" y="157.48" smashed="yes"/>
 <instance part="U$11" gate="G$1" x="223.52" y="154.94" smashed="yes"/>
@@ -3519,7 +3534,6 @@ FET to drive haptic device</text>
 <instance part="U$19" gate="G$1" x="223.52" y="119.38" smashed="yes"/>
 <instance part="U$20" gate="G$1" x="223.52" y="116.84" smashed="yes"/>
 <instance part="U$24" gate="G$1" x="223.52" y="106.68" smashed="yes"/>
-<instance part="U$26" gate="G$1" x="223.52" y="99.06" smashed="yes"/>
 <instance part="U$27" gate="G$1" x="223.52" y="96.52" smashed="yes"/>
 <instance part="GND3" gate="1" x="43.18" y="132.08" smashed="yes">
 <attribute name="VALUE" x="40.64" y="129.54" size="1.778" layer="96"/>
@@ -3540,6 +3554,25 @@ FET to drive haptic device</text>
 </instance>
 <instance part="GND2" gate="1" x="22.86" y="22.86" smashed="yes">
 <attribute name="VALUE" x="20.32" y="20.32" size="1.778" layer="96"/>
+</instance>
+<instance part="J2" gate="G$1" x="101.6" y="43.18" smashed="yes">
+<attribute name="VALUE" x="99.06" y="38.1" size="1.778" layer="96"/>
+<attribute name="NAME" x="99.06" y="59.182" size="1.778" layer="95"/>
+</instance>
+<instance part="Q2" gate="G$1" x="116.84" y="25.4" smashed="yes">
+<attribute name="NAME" x="121.92" y="27.94" size="1.778" layer="95"/>
+<attribute name="VALUE" x="121.92" y="25.4" size="1.778" layer="96"/>
+</instance>
+<instance part="GND12" gate="1" x="116.84" y="12.7" smashed="yes">
+<attribute name="VALUE" x="114.3" y="10.16" size="1.778" layer="96"/>
+</instance>
+<instance part="R2" gate="G$1" x="116.84" y="35.56" smashed="yes" rot="R90">
+<attribute name="NAME" x="115.3414" y="31.75" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="120.142" y="31.75" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R3" gate="G$1" x="106.68" y="20.32" smashed="yes" rot="R90">
+<attribute name="NAME" x="105.1814" y="16.51" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="109.982" y="16.51" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -3638,10 +3671,14 @@ FET to drive haptic device</text>
 <wire x1="15.24" y1="88.9" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="53.34" x2="116.84" y2="53.34" width="0.1524" layer="91" style="longdash"/>
+<wire x1="109.22" y1="50.8" x2="114.3" y2="50.8" width="0.1524" layer="91" style="longdash"/>
 <pinref part="U$7" gate="G$1" pin="5V"/>
-<wire x1="116.84" y1="53.34" x2="116.84" y2="55.88" width="0.1524" layer="91" style="longdash"/>
+<wire x1="114.3" y1="50.8" x2="114.3" y2="58.42" width="0.1524" layer="91" style="longdash"/>
+<pinref part="J2" gate="G$1" pin="4"/>
+<pinref part="J2" gate="G$1" pin="3"/>
+<wire x1="109.22" y1="48.26" x2="114.3" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="48.26" x2="114.3" y2="50.8" width="0.1524" layer="91"/>
+<junction x="114.3" y="50.8"/>
 </segment>
 <segment>
 <pinref part="U$23" gate="G$1" pin="5V"/>
@@ -3772,10 +3809,10 @@ FET to drive haptic device</text>
 <pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="4"/>
-<wire x1="111.76" y1="45.72" x2="116.84" y2="45.72" width="0.1524" layer="91" style="longdash"/>
+<wire x1="109.22" y1="43.18" x2="129.54" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="116.84" y1="45.72" x2="116.84" y2="43.18" width="0.1524" layer="91" style="longdash"/>
+<wire x1="129.54" y1="43.18" x2="129.54" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="C7" gate="G$1" pin="2"/>
@@ -3797,6 +3834,14 @@ FET to drive haptic device</text>
 <wire x1="33.02" y1="27.94" x2="22.86" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="22.86" y1="27.94" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<pinref part="GND12" gate="1" pin="GND"/>
+<wire x1="116.84" y1="20.32" x2="116.84" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="15.24" x2="116.84" y2="15.24" width="0.1524" layer="91"/>
+<junction x="116.84" y="15.24"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -3834,9 +3879,9 @@ FET to drive haptic device</text>
 <label x="226.06" y="132.08" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="50.8" x2="119.38" y2="50.8" width="0.1524" layer="91" style="longdash"/>
-<label x="119.38" y="50.8" size="1.27" layer="95" xref="yes"/>
+<label x="121.92" y="45.72" size="1.27" layer="95" xref="yes"/>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="121.92" y1="45.72" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3V3" class="0">
@@ -3977,9 +4022,9 @@ FET to drive haptic device</text>
 <label x="226.06" y="111.76" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<label x="175.26" y="50.8" size="1.27" layer="95" xref="yes"/>
+<label x="177.8" y="50.8" size="1.27" layer="95" xref="yes"/>
 <pinref part="ICSP" gate="G$1" pin="4"/>
-<wire x1="175.26" y1="50.8" x2="172.72" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="50.8" x2="172.72" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -4054,6 +4099,14 @@ FET to drive haptic device</text>
 <pinref part="IC1" gate="G$1" pin="PD6(T1/OC4D/ADC9)"/>
 <label x="226.06" y="99.06" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="25.4" x2="106.68" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="25.4" x2="99.06" y2="25.4" width="0.1524" layer="91"/>
+<junction x="106.68" y="25.4"/>
+<label x="99.06" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="D4_A6" class="0">
 <segment>
@@ -4062,9 +4115,9 @@ FET to drive haptic device</text>
 <label x="226.06" y="93.98" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J5" gate="G$1" pin="3"/>
-<wire x1="111.76" y1="48.26" x2="119.38" y2="48.26" width="0.1524" layer="91" style="longdash"/>
-<label x="119.38" y="48.26" size="1.27" layer="95" xref="yes"/>
+<label x="121.92" y="53.34" size="1.27" layer="95" xref="yes"/>
+<pinref part="J2" gate="G$1" pin="5"/>
+<wire x1="109.22" y1="53.34" x2="121.92" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D8_A9" class="0">
@@ -4196,6 +4249,20 @@ FET to drive haptic device</text>
 <wire x1="20.32" y1="99.06" x2="17.78" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="111.76" x2="17.78" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="111.76" x2="17.78" y2="99.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="6"/>
+<wire x1="109.22" y1="55.88" x2="116.84" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="55.88" x2="116.84" y2="40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
 </segment>
 </net>
 </nets>
