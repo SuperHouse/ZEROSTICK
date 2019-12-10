@@ -2918,6 +2918,50 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <circle x="15.2" y="-14.25" radius="1.5" width="0.2" layer="51"/>
 <circle x="-15.2" y="-14.25" radius="1.5" width="0.2" layer="51"/>
 </package>
+<package name="OLED-128X32-0.91-HEADER" urn="urn:adsk.eagle:footprint:15708158/1" library_version="14">
+<description>128x32 I2C OLED 0.91"</description>
+<wire x1="-19.58" y1="3.175" x2="-19.58" y2="4.445" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="4.445" x2="-18.945" y2="5.08" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="5.08" x2="-17.04" y2="4.445" width="0.2032" layer="21"/>
+<wire x1="-18.945" y1="0" x2="-19.58" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="0.635" x2="-19.58" y2="1.905" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="1.905" x2="-18.945" y2="2.54" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="2.54" x2="-17.04" y2="1.905" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="1.905" x2="-17.04" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="0.635" x2="-17.675" y2="0" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="3.175" x2="-18.945" y2="2.54" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="2.54" x2="-17.04" y2="3.175" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="4.445" x2="-17.04" y2="3.175" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="-4.445" x2="-19.58" y2="-3.175" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="-3.175" x2="-18.945" y2="-2.54" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="-2.54" x2="-17.04" y2="-3.175" width="0.2032" layer="21"/>
+<wire x1="-18.945" y1="-2.54" x2="-19.58" y2="-1.905" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="-1.905" x2="-19.58" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="-0.635" x2="-18.945" y2="0" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="0" x2="-17.04" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="-0.635" x2="-17.04" y2="-1.905" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="-1.905" x2="-17.675" y2="-2.54" width="0.2032" layer="21"/>
+<wire x1="-18.945" y1="-5.08" x2="-17.675" y2="-5.08" width="0.2032" layer="21"/>
+<wire x1="-19.58" y1="-4.445" x2="-18.945" y2="-5.08" width="0.2032" layer="21"/>
+<wire x1="-17.675" y1="-5.08" x2="-17.04" y2="-4.445" width="0.2032" layer="21"/>
+<wire x1="-17.04" y1="-3.175" x2="-17.04" y2="-4.445" width="0.2032" layer="21"/>
+<wire x1="-18.945" y1="5.08" x2="-17.675" y2="5.08" width="0.2032" layer="21"/>
+<wire x1="-20.5" y1="-6" x2="-20.5" y2="6" width="0.127" layer="51"/>
+<wire x1="-20.5" y1="6" x2="17.5" y2="6" width="0.127" layer="51"/>
+<wire x1="17.5" y1="6" x2="17.5" y2="-6" width="0.127" layer="51"/>
+<wire x1="17.5" y1="-6" x2="-20.5" y2="-6" width="0.127" layer="51"/>
+<pad name="GND" x="-18.31" y="-3.81" drill="1.016" diameter="1.8796" shape="square" rot="R180"/>
+<pad name="VCC" x="-18.31" y="-1.27" drill="1.016" diameter="1.8796" rot="R180"/>
+<pad name="SCL" x="-18.31" y="1.27" drill="1.016" diameter="1.8796" rot="R180"/>
+<pad name="SDA" x="-18.31" y="3.81" drill="1.016" diameter="1.8796" rot="R180"/>
+<text x="-16.2962" y="-7.3612" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-17.22" y="6.675" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-18.564" y1="3.556" x2="-18.056" y2="4.064" layer="51" rot="R90"/>
+<rectangle x1="-18.564" y1="1.016" x2="-18.056" y2="1.524" layer="51" rot="R90"/>
+<rectangle x1="-18.564" y1="-1.524" x2="-18.056" y2="-1.016" layer="51" rot="R90"/>
+<rectangle x1="-18.564" y1="-4.064" x2="-18.056" y2="-3.556" layer="51" rot="R90"/>
+<rectangle x1="-16" y1="-5" x2="17" y2="5" layer="51"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="OLED-128X64-0.96" urn="urn:adsk.eagle:package:11966782/2" type="model" library_version="12">
@@ -2944,6 +2988,12 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <packageinstance name="OLED-128X64-1.3-HO"/>
 </packageinstances>
 </package3d>
+<package3d name="OLED-128X32-0.91-HEADER" urn="urn:adsk.eagle:package:15708159/2" type="model" library_version="14">
+<description>128x32 I2C OLED 0.91"</description>
+<packageinstances>
+<packageinstance name="OLED-128X32-0.91-HEADER"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="OLED-I2C" urn="urn:adsk.eagle:symbol:11966781/1" library_version="1" library_locally_modified="yes">
@@ -2960,7 +3010,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="OLED-I2C" urn="urn:adsk.eagle:component:11966783/9" prefix="MOD" library_version="1" library_locally_modified="yes">
+<deviceset name="OLED-I2C" urn="urn:adsk.eagle:component:11966783/11" prefix="MOD" library_version="1" library_locally_modified="yes">
 <description>OLED module with SSD1306 I2C driver</description>
 <gates>
 <gate name="G$1" symbol="OLED-I2C" x="0" y="0"/>
@@ -3017,6 +3067,20 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:12058301/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="128X32-0.91-HEADER" package="OLED-128X32-0.91-HEADER">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="SCL" pad="SCL"/>
+<connect gate="G$1" pin="SDA" pad="SDA"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:15708159/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3171,13 +3235,11 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="LED4" library="SuperHouse-LEDs" library_urn="urn:adsk.eagle:library:11790571" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:7066240/3" value="GREEN"/>
 <part name="R24" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="1K"/>
 <part name="GND18" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="MOD1" library="SuperHouse-Displays" library_urn="urn:adsk.eagle:library:11966779" deviceset="OLED-I2C" device="128X32-0.91" package3d_urn="urn:adsk.eagle:package:11973684/4"/>
+<part name="MOD1" library="SuperHouse-Displays" library_urn="urn:adsk.eagle:library:11966779" deviceset="OLED-I2C" device="128X32-0.91-HEADER" package3d_urn="urn:adsk.eagle:package:15708159/2" value="OLED-I2C128X32-0.91-HEADER"/>
 <part name="J1" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="USB-6P" device="-SMT" package3d_urn="urn:adsk.eagle:package:7066270/2"/>
 <part name="GND1" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="U$2" library="SparkFun" deviceset="5V" device=""/>
 <part name="K1" library="SuperHouse-Relays" library_urn="urn:adsk.eagle:library:11860554" deviceset="HE721C" device="-DIP" package3d_urn="urn:adsk.eagle:package:15628011/2"/>
-<part name="GND2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="U$4" library="SparkFun" deviceset="5V" device=""/>
 <part name="U$6" library="SparkFun" deviceset="5V" device=""/>
 <part name="Q1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-233" package3d_urn="urn:adsk.eagle:package:11815952/3" value="2N7002"/>
 <part name="R1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
@@ -3201,12 +3263,12 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="U$24" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$26" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$27" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
-<part name="U$21" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
-<part name="U$22" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="GND3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="C7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0805" package3d_urn="urn:adsk.eagle:package:7066318/4" value="10uF"/>
 <part name="U$23" library="SparkFun" deviceset="5V" device=""/>
-<part name="SW1" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3"/>
+<part name="S2" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3" value="Trigger Level"/>
+<part name="GND6" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
+<part name="GND2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3225,18 +3287,18 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <frame x1="139.7" y1="12.7" x2="170.18" y2="17.78" columns="8" rows="5" layer="94"/>
 <frame x1="170.18" y1="12.7" x2="200.66" y2="17.78" columns="8" rows="5" layer="94"/>
 <frame x1="139.7" y1="5.08" x2="243.84" y2="17.78" columns="0" rows="0" layer="94" border-left="no" border-top="no" border-right="no" border-bottom="no"/>
-<wire x1="137.16" y1="68.58" x2="137.16" y2="35.56" width="0.1524" layer="97" style="longdash"/>
-<wire x1="185.42" y1="68.58" x2="137.16" y2="68.58" width="0.1524" layer="97" style="longdash"/>
-<wire x1="185.42" y1="68.58" x2="185.42" y2="35.56" width="0.1524" layer="97" style="longdash"/>
+<wire x1="137.16" y1="68.58" x2="137.16" y2="35.56" width="0.254" layer="97" style="longdash"/>
+<wire x1="185.42" y1="68.58" x2="137.16" y2="68.58" width="0.254" layer="97" style="longdash"/>
+<wire x1="185.42" y1="68.58" x2="185.42" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="121.92" x2="76.2" y2="121.92" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="121.92" x2="76.2" y2="60.96" width="0.254" layer="97" style="longdash"/>
 <wire x1="76.2" y1="60.96" x2="10.16" y2="60.96" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="60.96" x2="10.16" y2="121.92" width="0.254" layer="97" style="longdash"/>
 <text x="15.24" y="116.84" size="2.54" layer="94">Output</text>
 <text x="15.24" y="50.8" size="2.54" layer="94">Trigger Level</text>
-<wire x1="10.16" y1="55.88" x2="43.18" y2="55.88" width="0.254" layer="97" style="longdash"/>
-<wire x1="43.18" y1="55.88" x2="43.18" y2="15.24" width="0.254" layer="97" style="longdash"/>
-<wire x1="43.18" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="97" style="longdash"/>
+<wire x1="10.16" y1="55.88" x2="76.2" y2="55.88" width="0.254" layer="97" style="longdash"/>
+<wire x1="76.2" y1="55.88" x2="76.2" y2="15.24" width="0.254" layer="97" style="longdash"/>
+<wire x1="76.2" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="15.24" x2="10.16" y2="55.88" width="0.254" layer="97" style="longdash"/>
 <wire x1="137.16" y1="35.56" x2="185.42" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <text x="195.58" y="63.5" size="2.54" layer="94">128x32 OLED</text>
@@ -3259,8 +3321,10 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <wire x1="83.82" y1="35.56" x2="83.82" y2="68.58" width="0.254" layer="97" style="longdash"/>
 <text x="88.9" y="50.8" size="1.778" layer="97">Cell SCK</text>
 <text x="88.9" y="48.26" size="1.778" layer="97">Cell DOUT</text>
-<text x="111.76" y="7.62" size="1.778" layer="97">Pin Assignments
-A0: Trigger level knob
+<text x="86.36" y="7.62" size="1.778" layer="97">Pin Assignments
+A0: Rotary encoder button (enable pull-up)
+D0: Rotary encoder A
+D1: Rotary encoder B
 D2: I2C SDA
 D3: I2C SCL
 D4: HX711 DOUT
@@ -3269,6 +3333,9 @@ D6: Relay
 D13: LED</text>
 <text x="44.45" y="97.155" size="1.27" layer="97">NO</text>
 <text x="44.45" y="99.695" size="1.27" layer="97">NC</text>
+<text x="147.32" y="27.94" size="1.778" layer="97">To Do:
+RJ12 connector for haptic connection
+FET to drive haptic device</text>
 </plain>
 <instances>
 <instance part="GND7" gate="1" x="147.32" y="154.94" smashed="yes">
@@ -3392,7 +3459,7 @@ D13: LED</text>
 </instance>
 <instance part="MOD1" gate="G$1" x="218.44" y="50.8" smashed="yes">
 <attribute name="NAME" x="213.36" y="56.388" size="1.778" layer="95"/>
-<attribute name="VALUE" x="205.74" y="43.18" size="1.778" layer="96"/>
+<attribute name="VALUE" x="195.58" y="43.18" size="1.778" layer="96"/>
 </instance>
 <instance part="J1" gate="G$1" x="96.52" y="127" smashed="yes" rot="R180">
 <attribute name="NAME" x="93.98" y="133.35" size="2.54" layer="95" rot="R270"/>
@@ -3407,12 +3474,6 @@ D13: LED</text>
 <instance part="K1" gate="G$1" x="27.94" y="96.52" smashed="yes">
 <attribute name="NAME" x="27.94" y="107.188" size="2.0828" layer="95" ratio="6" rot="SR0" align="bottom-center"/>
 <attribute name="VALUE" x="27.94" y="83.82" size="2.0828" layer="96" ratio="6" rot="SR0" align="bottom-center"/>
-</instance>
-<instance part="GND2" gate="1" x="22.86" y="20.32" smashed="yes">
-<attribute name="VALUE" x="20.32" y="17.78" size="1.778" layer="96"/>
-</instance>
-<instance part="U$4" gate="G$1" x="22.86" y="43.18" smashed="yes">
-<attribute name="VALUE" x="21.844" y="46.736" size="1.778" layer="96"/>
 </instance>
 <instance part="U$6" gate="G$1" x="15.24" y="91.44" smashed="yes">
 <attribute name="VALUE" x="14.224" y="94.996" size="1.778" layer="96"/>
@@ -3460,8 +3521,6 @@ D13: LED</text>
 <instance part="U$24" gate="G$1" x="223.52" y="106.68" smashed="yes"/>
 <instance part="U$26" gate="G$1" x="223.52" y="99.06" smashed="yes"/>
 <instance part="U$27" gate="G$1" x="223.52" y="96.52" smashed="yes"/>
-<instance part="U$21" gate="G$1" x="223.52" y="91.44" smashed="yes"/>
-<instance part="U$22" gate="G$1" x="223.52" y="88.9" smashed="yes"/>
 <instance part="GND3" gate="1" x="43.18" y="132.08" smashed="yes">
 <attribute name="VALUE" x="40.64" y="129.54" size="1.778" layer="96"/>
 </instance>
@@ -3472,9 +3531,15 @@ D13: LED</text>
 <instance part="U$23" gate="G$1" x="43.18" y="160.02" smashed="yes">
 <attribute name="VALUE" x="42.164" y="163.576" size="1.778" layer="96"/>
 </instance>
-<instance part="SW1" gate="G$1" x="60.96" y="33.02" smashed="yes">
-<attribute name="NAME" x="60.96" y="41.402" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="60.96" y="22.86" size="1.778" layer="96" align="bottom-center"/>
+<instance part="S2" gate="G$1" x="43.18" y="33.02" smashed="yes">
+<attribute name="NAME" x="43.18" y="41.402" size="1.778" layer="95" align="bottom-center"/>
+<attribute name="VALUE" x="43.18" y="22.86" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="GND6" gate="1" x="63.5" y="22.86" smashed="yes">
+<attribute name="VALUE" x="60.96" y="20.32" size="1.778" layer="96"/>
+</instance>
+<instance part="GND2" gate="1" x="22.86" y="22.86" smashed="yes">
+<attribute name="VALUE" x="20.32" y="20.32" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -3487,8 +3552,9 @@ D13: LED</text>
 <label x="226.06" y="144.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="27.94" y1="33.02" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
-<label x="33.02" y="33.02" size="1.27" layer="95" xref="yes"/>
+<pinref part="S2" gate="G$1" pin="SW1"/>
+<wire x1="53.34" y1="38.1" x2="60.96" y2="38.1" width="0.1524" layer="91"/>
+<label x="60.96" y="38.1" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="A1" class="0">
@@ -3564,10 +3630,6 @@ D13: LED</text>
 <wire x1="228.6" y1="53.34" x2="233.68" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="5V"/>
 <wire x1="233.68" y1="53.34" x2="233.68" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U$4" gate="G$1" pin="5V"/>
-<wire x1="22.86" y1="43.18" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$6" gate="G$1" pin="5V"/>
@@ -3702,10 +3764,6 @@ D13: LED</text>
 <wire x1="233.68" y1="48.26" x2="233.68" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="22.86" y1="22.86" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <wire x1="43.18" y1="76.2" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
@@ -3723,6 +3781,22 @@ D13: LED</text>
 <pinref part="C7" gate="G$1" pin="2"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="43.18" y1="137.16" x2="43.18" y2="134.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="GND"/>
+<wire x1="53.34" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="63.5" y1="27.94" x2="63.5" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="S2" gate="G$1" pin="SW2"/>
+<wire x1="53.34" y1="33.02" x2="63.5" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="33.02" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
+<junction x="63.5" y="27.94"/>
+</segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="COM"/>
+<wire x1="33.02" y1="27.94" x2="22.86" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="22.86" y1="27.94" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -3940,12 +4014,22 @@ D13: LED</text>
 <pinref part="IC1" gate="G$1" pin="PD2(INT2/RXD1)"/>
 <label x="226.06" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="A"/>
+<wire x1="33.02" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
+<label x="27.94" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="D1" class="0">
 <segment>
 <wire x1="223.52" y1="91.44" x2="226.06" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="PD3(INT3/TXD1)"/>
 <label x="226.06" y="91.44" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="B"/>
+<wire x1="33.02" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
+<label x="27.94" y="33.02" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="D6_A8" class="0">
