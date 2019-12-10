@@ -6,7 +6,7 @@ Designed by Jonathan Oxer
 Load-cell based button that can have the required activation force
 adjusted in software, to tune it based on the needs of the user.
 
-![PCB render](images/SB-v1_0-.jpg)
+![PCB render](images/SB-v1_0-render.jpg)
 
 Features:
 
