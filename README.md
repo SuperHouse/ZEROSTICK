@@ -6,13 +6,16 @@ Designed by Jonathan Oxer
 Load-cell based button that can have the required activation force
 adjusted in software, to tune it based on the needs of the user.
 
+![PCB render](images/SB-v1_0-.jpg)
+
 Features:
 
  * 1 x input connection for a load-cell based button
  * 1 x USB connection for power or to emulate an input device
  * 1 x switched output (either N.O. or N.C.) to control other devices
+ * Haptic feedback output
  * 128x32 OLED to show current force reading and activation threshold
- * Knob to adjust activation threshold
+ * Rotary encoder to adjust activation threshold
 
 More information is available at:
 
