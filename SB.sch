@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -189,32 +189,6 @@
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
-<library name="SparkFun">
-<packages>
-</packages>
-<symbols>
-<symbol name="5V">
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="5V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="5V">
-<gates>
-<gate name="G$1" symbol="5V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SuperHouse-DiscreteSemi" urn="urn:adsk.eagle:library:11768461">
 <packages>
 <package name="R0603" urn="urn:adsk.eagle:footprint:11768537/1" library_version="40">
@@ -2684,6 +2658,13 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <wire x1="-0.508" y1="0.508" x2="0.508" y2="-0.508" width="0.254" layer="97"/>
 <wire x1="0.508" y1="0.508" x2="-0.508" y2="-0.508" width="0.254" layer="97"/>
 </symbol>
+<symbol name="5V" urn="urn:adsk.eagle:symbol:11790506/2" library_version="5">
+<description>5V power source</description>
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="5V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" urn="urn:adsk.eagle:component:11790508/1" prefix="GND" library_version="5">
@@ -2703,6 +2684,18 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <description>NC: No Connection</description>
 <gates>
 <gate name="G$1" symbol="NOCONNECTION" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="5V" urn="urn:adsk.eagle:component:11790510/2" library_version="5">
+<gates>
+<gate name="G$1" symbol="5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -3214,15 +3207,15 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="GND7" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="C2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="GND8" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="U$3" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="R7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
-<part name="U$1" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$1" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="C3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="1uF"/>
 <part name="C1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="GND11" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="ICSP" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="ICSP" device="-PIN" package3d_urn="urn:adsk.eagle:package:11765966/8" value="ICSP"/>
 <part name="GND9" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="U$8" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$8" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="S1" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="TAC_SWITCH_2PIN" device="SMT" package3d_urn="urn:adsk.eagle:package:11818379/4" value="RESET"/>
 <part name="Z1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TVS" device="0603" package3d_urn="urn:adsk.eagle:package:11801346/2" value="PGB1010603"/>
 <part name="Z2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TVS" device="0603" package3d_urn="urn:adsk.eagle:package:11801346/2" value="PGB1010603"/>
@@ -3234,11 +3227,11 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="GND10" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="XTL1" library="SuperHouse-Oscillators" library_urn="urn:adsk.eagle:library:11786724" deviceset="CRYSTAL-GND" device="3X2" package3d_urn="urn:adsk.eagle:package:7066259/2" value="16MHz"/>
 <part name="GND13" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="U$9" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$9" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="R8" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="4K7"/>
 <part name="R11" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
 <part name="R12" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
-<part name="U$5" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$5" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="LED1" library="SuperHouse-LEDs" library_urn="urn:adsk.eagle:library:11790571" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:7066240/3" value="BLUE"/>
 <part name="F1" library="SuperHouse-Fuses" library_urn="urn:adsk.eagle:library:11769263" deviceset="PTC" device="" package3d_urn="urn:adsk.eagle:package:11769373/4" technology="050" value="500mA PTC 1812"/>
 <part name="IC1" library="SuperHouse-MCUs" library_urn="urn:adsk.eagle:library:11815114" deviceset="ATMEGA32U4NT" device="-TQFP" package3d_urn="urn:adsk.eagle:package:12190647/3"/>
@@ -3248,12 +3241,12 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="MOD1" library="SuperHouse-Displays" library_urn="urn:adsk.eagle:library:11966779" deviceset="OLED-I2C" device="128X32-0.91-HEADER" package3d_urn="urn:adsk.eagle:package:15708159/2" value="OLED-I2C128X32-0.91-HEADER"/>
 <part name="J1" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="USB-6P" device="-SMT" package3d_urn="urn:adsk.eagle:package:7066270/2"/>
 <part name="GND1" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="U$2" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="K1" library="SuperHouse-Relays" library_urn="urn:adsk.eagle:library:11860554" deviceset="HE721C" device="-DIP" package3d_urn="urn:adsk.eagle:package:15628011/2"/>
-<part name="U$6" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$6" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="Q1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-233" package3d_urn="urn:adsk.eagle:package:11815952/3" value="2N7002"/>
 <part name="R1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
-<part name="U$7" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$7" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="GND4" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="J3" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="AUDIO-JACK-PJ321" device="" package3d_urn="urn:adsk.eagle:package:11973214/2"/>
 <part name="J4" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="M03" device="-PIN" package3d_urn="urn:adsk.eagle:package:11815967/3" value="NO/NC"/>
@@ -3273,15 +3266,17 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="U$27" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="GND3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="C7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0805" package3d_urn="urn:adsk.eagle:package:7066318/4" value="10uF"/>
-<part name="U$23" library="SparkFun" deviceset="5V" device=""/>
+<part name="U$23" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="S2" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3" value="Trigger Level"/>
 <part name="GND6" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="GND2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="J2" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="RJ12" device="" package3d_urn="urn:adsk.eagle:package:15744402/2"/>
-<part name="Q2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-323" package3d_urn="urn:adsk.eagle:package:7066313/2" value="RJU003N03"/>
+<part name="Q2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-233" package3d_urn="urn:adsk.eagle:package:11815952/3" value="2N7002"/>
 <part name="GND12" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="R2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="150R"/>
 <part name="R3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
+<part name="R4" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
+<part name="U$4" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3290,7 +3285,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <text x="144.78" y="63.5" size="2.54" layer="94" ratio="12">ICSP Header</text>
 <text x="86.36" y="170.18" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">SuperButton Assistive Technology Button</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V1.0 (2019-12-05)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V1.1 (2019-12-19)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: SB</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2019 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -3310,9 +3305,9 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <text x="15.24" y="116.84" size="2.54" layer="94">Output</text>
 <text x="15.24" y="50.8" size="2.54" layer="94">Trigger Level</text>
 <wire x1="10.16" y1="55.88" x2="76.2" y2="55.88" width="0.254" layer="97" style="longdash"/>
-<wire x1="76.2" y1="55.88" x2="76.2" y2="15.24" width="0.254" layer="97" style="longdash"/>
-<wire x1="76.2" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="97" style="longdash"/>
-<wire x1="10.16" y1="15.24" x2="10.16" y2="55.88" width="0.254" layer="97" style="longdash"/>
+<wire x1="76.2" y1="55.88" x2="76.2" y2="7.62" width="0.254" layer="97" style="longdash"/>
+<wire x1="76.2" y1="7.62" x2="10.16" y2="7.62" width="0.254" layer="97" style="longdash"/>
+<wire x1="10.16" y1="7.62" x2="10.16" y2="55.88" width="0.254" layer="97" style="longdash"/>
 <wire x1="139.7" y1="35.56" x2="187.96" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <text x="195.58" y="63.5" size="2.54" layer="94">128x32 OLED</text>
 <wire x1="190.5" y1="68.58" x2="241.3" y2="68.58" width="0.254" layer="97" style="longdash"/>
@@ -3348,8 +3343,8 @@ D13: LED</text>
 <text x="44.45" y="97.155" size="1.27" layer="97">NO</text>
 <text x="44.45" y="99.695" size="1.27" layer="97">NC</text>
 <text x="147.32" y="27.94" size="1.778" layer="97">To Do:
-RJ12 connector for haptic connection
-FET to drive haptic device</text>
+Pullup on A0
+Split stereo socket</text>
 <text x="83.82" y="55.88" size="1.778" layer="97">Haptic -</text>
 <text x="83.82" y="50.8" size="1.778" layer="97">Haptic +</text>
 <text x="83.82" y="48.26" size="1.778" layer="97">5V</text>
@@ -3545,15 +3540,15 @@ FET to drive haptic device</text>
 <instance part="U$23" gate="G$1" x="43.18" y="160.02" smashed="yes">
 <attribute name="VALUE" x="42.164" y="163.576" size="1.778" layer="96"/>
 </instance>
-<instance part="S2" gate="G$1" x="43.18" y="33.02" smashed="yes">
-<attribute name="NAME" x="43.18" y="41.402" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="43.18" y="22.86" size="1.778" layer="96" align="bottom-center"/>
+<instance part="S2" gate="G$1" x="43.18" y="25.4" smashed="yes">
+<attribute name="NAME" x="43.18" y="33.782" size="1.778" layer="95" align="bottom-center"/>
+<attribute name="VALUE" x="43.18" y="15.24" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="GND6" gate="1" x="63.5" y="22.86" smashed="yes">
-<attribute name="VALUE" x="60.96" y="20.32" size="1.778" layer="96"/>
+<instance part="GND6" gate="1" x="63.5" y="15.24" smashed="yes">
+<attribute name="VALUE" x="60.96" y="12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="GND2" gate="1" x="22.86" y="22.86" smashed="yes">
-<attribute name="VALUE" x="20.32" y="20.32" size="1.778" layer="96"/>
+<instance part="GND2" gate="1" x="22.86" y="15.24" smashed="yes">
+<attribute name="VALUE" x="20.32" y="12.7" size="1.778" layer="96"/>
 </instance>
 <instance part="J2" gate="G$1" x="101.6" y="43.18" smashed="yes">
 <attribute name="VALUE" x="99.06" y="38.1" size="1.778" layer="96"/>
@@ -3574,6 +3569,13 @@ FET to drive haptic device</text>
 <attribute name="NAME" x="105.1814" y="16.51" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="109.982" y="16.51" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="R4" gate="G$1" x="58.42" y="38.1" smashed="yes" rot="R90">
+<attribute name="NAME" x="62.23" y="39.5986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="62.23" y="37.338" size="1.778" layer="96"/>
+</instance>
+<instance part="U$4" gate="G$1" x="58.42" y="45.72" smashed="yes">
+<attribute name="VALUE" x="57.404" y="49.276" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -3586,8 +3588,12 @@ FET to drive haptic device</text>
 </segment>
 <segment>
 <pinref part="S2" gate="G$1" pin="SW1"/>
-<wire x1="53.34" y1="38.1" x2="60.96" y2="38.1" width="0.1524" layer="91"/>
-<label x="60.96" y="38.1" size="1.27" layer="95" xref="yes"/>
+<wire x1="53.34" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<label x="60.96" y="30.48" size="1.27" layer="95" xref="yes"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="30.48" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="33.02" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<junction x="58.42" y="30.48"/>
 </segment>
 </net>
 <net name="A1" class="0">
@@ -3684,6 +3690,11 @@ FET to drive haptic device</text>
 <pinref part="U$23" gate="G$1" pin="5V"/>
 <pinref part="C7" gate="G$1" pin="1"/>
 <wire x1="43.18" y1="160.02" x2="43.18" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="U$4" gate="G$1" pin="5V"/>
+<wire x1="58.42" y1="43.18" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3821,19 +3832,19 @@ FET to drive haptic device</text>
 </segment>
 <segment>
 <pinref part="S2" gate="G$1" pin="GND"/>
-<wire x1="53.34" y1="27.94" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="20.32" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="63.5" y1="27.94" x2="63.5" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="20.32" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="S2" gate="G$1" pin="SW2"/>
-<wire x1="53.34" y1="33.02" x2="63.5" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="33.02" x2="63.5" y2="27.94" width="0.1524" layer="91"/>
-<junction x="63.5" y="27.94"/>
+<wire x1="53.34" y1="25.4" x2="63.5" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="25.4" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
+<junction x="63.5" y="20.32"/>
 </segment>
 <segment>
 <pinref part="S2" gate="G$1" pin="COM"/>
-<wire x1="33.02" y1="27.94" x2="22.86" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="20.32" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="22.86" y1="27.94" x2="22.86" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="20.32" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S"/>
@@ -4061,8 +4072,8 @@ FET to drive haptic device</text>
 </segment>
 <segment>
 <pinref part="S2" gate="G$1" pin="A"/>
-<wire x1="33.02" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
-<label x="27.94" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="33.02" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
+<label x="27.94" y="30.48" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="D1" class="0">
@@ -4073,8 +4084,8 @@ FET to drive haptic device</text>
 </segment>
 <segment>
 <pinref part="S2" gate="G$1" pin="B"/>
-<wire x1="33.02" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
-<label x="27.94" y="33.02" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="33.02" y1="25.4" x2="27.94" y2="25.4" width="0.1524" layer="91"/>
+<label x="27.94" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="D6_A8" class="0">
@@ -4234,15 +4245,11 @@ FET to drive haptic device</text>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="J3" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="101.6" x2="58.42" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="101.6" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="J3" gate="G$1" pin="4B"/>
 <wire x1="58.42" y1="104.14" x2="58.42" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="106.68" x2="60.96" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="J3" gate="G$1" pin="4A"/>
 <wire x1="60.96" y1="104.14" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
-<junction x="58.42" y="104.14"/>
 <wire x1="58.42" y1="106.68" x2="58.42" y2="111.76" width="0.1524" layer="91"/>
 <junction x="58.42" y="106.68"/>
 <pinref part="K1" gate="G$1" pin="COM"/>
