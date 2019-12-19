@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.5.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4269,30 +4269,19 @@ FET to drive haptic device</text>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,111.76,83.82,J1,VBUS,USB+,,,"/>
-<approved hash="208,1,35.56,116.84,5V,out,,,,"/>
-<approved hash="208,1,38.1,119.38,5V,sup,,,,"/>
-<approved hash="208,1,165.1,119.38,5V,sup,,,,"/>
-<approved hash="208,1,182.88,167.64,5V,sup,,,,"/>
-<approved hash="208,1,129.54,22.86,5V,sup,,,,"/>
-<approved hash="208,1,177.8,104.14,5V,sup,,,,"/>
-<approved hash="208,1,238.76,167.64,5V,sup,,,,"/>
-<approved hash="208,1,76.2,73.66,5V,sup,,,,"/>
-<approved hash="208,1,81.28,76.2,5V,sup,,,,"/>
-<approved hash="208,1,35.56,33.02,5V,sup,,,,"/>
-<approved hash="106,1,228.6,109.22,A5,,,,,"/>
-<approved hash="106,1,228.6,40.64,D0,,,,,"/>
-<approved hash="106,1,228.6,43.18,D1,,,,,"/>
-<approved hash="106,1,228.6,35.56,D3_SCL,,,,,"/>
-<approved hash="106,1,228.6,45.72,D4_A6,,,,,"/>
-<approved hash="106,1,228.6,83.82,D5,,,,,"/>
-<approved hash="106,1,228.6,53.34,D6_A8,,,,,"/>
-<approved hash="106,1,228.6,88.9,D7_AIN0,,,,,"/>
-<approved hash="106,1,228.6,68.58,D8_A9,,,,,"/>
-<approved hash="106,1,228.6,71.12,D9_A10,,,,,"/>
-<approved hash="106,1,228.6,76.2,D11,,,,,"/>
-<approved hash="106,1,228.6,50.8,D12,,,,,"/>
-<approved hash="106,1,228.6,91.44,HWB,,,,,"/>
+<approved hash="106,1,223.52,147.32,A1,,,,,"/>
+<approved hash="106,1,223.52,149.86,A2,,,,,"/>
+<approved hash="106,1,223.52,152.4,A3,,,,,"/>
+<approved hash="106,1,223.52,154.94,A4,,,,,"/>
+<approved hash="106,1,223.52,157.48,A5,,,,,"/>
+<approved hash="106,1,223.52,137.16,D7_AIN0,,,,,"/>
+<approved hash="106,1,223.52,116.84,D8_A9,,,,,"/>
+<approved hash="106,1,223.52,119.38,D9_A10,,,,,"/>
+<approved hash="106,1,223.52,121.92,D10_A11,,,,,"/>
+<approved hash="106,1,223.52,124.46,D11,,,,,"/>
+<approved hash="106,1,223.52,139.7,HWB,,,,,"/>
+<approved hash="106,1,223.52,106.68,RXLED_SS,,,,,"/>
+<approved hash="106,1,223.52,96.52,TX_LED,,,,,"/>
 </errors>
 </schematic>
 </drawing>
