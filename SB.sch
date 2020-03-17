@@ -3208,7 +3208,7 @@ Basic Inductor/Choke - 0603 and 1206. Footprints are not proven and vary greatly
 <packageinstance name="PEC12R"/>
 </packageinstances>
 </package3d>
-<package3d name="MK-12C02" urn="urn:adsk.eagle:package:7066359/1" type="box" library_version="22">
+<package3d name="MK-12C02" urn="urn:adsk.eagle:package:7066359/2" type="model" library_version="23">
 <packageinstances>
 <packageinstance name="MK-12C02"/>
 </packageinstances>
@@ -3335,7 +3335,7 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SWITCH-SPDT-4TABS" urn="urn:adsk.eagle:component:17291641/1" library_version="22">
+<deviceset name="SWITCH-SPDT-4TABS" urn="urn:adsk.eagle:component:17291641/2" library_version="23">
 <gates>
 <gate name="G$1" symbol="SWITCH-SPDT-4TABS" x="0" y="0"/>
 </gates>
@@ -3351,7 +3351,7 @@ Uxcell 3x4x2mm switch with 2 SMT pads</description>
 <connect gate="G$1" pin="MNT@4" pad="MNT@4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:7066359/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:7066359/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5475,8 +5475,8 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="U$4" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="IC2" library="SuperHouse-ICs" library_urn="urn:adsk.eagle:library:11768868" deviceset="HX711" device="-SOP16L" package3d_urn="urn:adsk.eagle:package:17215012/2"/>
 <part name="J5" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="USB-C-16P" device="-16P" package3d_urn="urn:adsk.eagle:package:17045956/2"/>
-<part name="R5" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="4K7"/>
-<part name="R6" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="4K7"/>
+<part name="R5" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
+<part name="R6" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
 <part name="C8" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="C9" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="R9" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="100R"/>
@@ -5488,7 +5488,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="C10" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="10uF"/>
 <part name="C11" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="C12" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="10uF"/>
-<part name="SW1" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="SWITCH-SPDT-4TABS" device="SMT" package3d_urn="urn:adsk.eagle:package:7066359/1"/>
+<part name="SW1" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="SWITCH-SPDT-4TABS" device="SMT" package3d_urn="urn:adsk.eagle:package:7066359/2"/>
 <part name="GND10" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 </parts>
 <sheets>

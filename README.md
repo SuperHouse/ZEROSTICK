@@ -1,6 +1,6 @@
 SuperButton Assistive Technology Button
-========================================
-Copyright 2019 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
+=======================================
+Copyright 2020 SuperHouse Automation Pty Ltd <www.superhouse.tv>  
 Designed by Jonathan Oxer
 
 Load-cell based button that can have the required activation force
