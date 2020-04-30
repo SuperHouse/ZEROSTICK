@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5498,7 +5498,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <text x="142.24" y="63.5" size="2.54" layer="94" ratio="12">ICSP Header</text>
 <text x="86.36" y="170.18" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">SuperButton Assistive Technology Button</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V2.0 (2020-01-13)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V2.1 (2020-04-23)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: SB</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2020 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -5549,7 +5549,6 @@ D13: LED</text>
 <text x="39.37" y="97.155" size="1.27" layer="97">NO</text>
 <text x="39.37" y="102.235" size="1.27" layer="97">NC</text>
 <text x="114.3" y="7.62" size="1.778" layer="97">To Do:
-Pullup on A0
 Split stereo socket</text>
 </plain>
 <instances>
