@@ -6,7 +6,7 @@ Designed by Jonathan Oxer
 Load-cell based button that can have the required activation force
 adjusted in software, to tune it based on the needs of the user.
 
-![PCB render](images/SB-v1_0-render.jpg)
+![PCB render](images/SB-v2_1-oblique-render.jpg)
 
 Features:
 
@@ -16,6 +16,8 @@ Features:
  * Haptic feedback output
  * 128x32 OLED to show current force reading and activation threshold
  * Rotary encoder to adjust activation threshold
+ * "Tare" button to reset zero point
+ * Pulse stretching feature controlled by slide switch
 
 More information is available at:
 
