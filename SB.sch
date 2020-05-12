@@ -4117,28 +4117,6 @@ Tactile switch, normally-open.</description>
 <text x="0" y="5" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="1" size="1.27" layer="27" align="bottom-center">&gt;VALUE</text>
 </package>
-<package name="RJ12" urn="urn:adsk.eagle:footprint:15744401/1" library_version="158">
-<description>RJ12 6/6 PCB mount socket</description>
-<hole x="-6" y="0" drill="2.4"/>
-<hole x="6" y="0" drill="2.4"/>
-<pad name="5" x="1.525" y="2.3" drill="0.9"/>
-<pad name="6" x="2.54" y="4.84" drill="0.9"/>
-<pad name="3" x="-0.501" y="2.3" drill="0.9"/>
-<pad name="4" x="0.501" y="4.84" drill="0.9"/>
-<pad name="1" x="-2.54" y="2.3" drill="0.9"/>
-<pad name="2" x="-1.525" y="4.84" drill="0.9"/>
-<wire x1="-6.1" y1="-6" x2="6.1" y2="-6" width="0.127" layer="51"/>
-<wire x1="-6.1" y1="9" x2="6.1" y2="9" width="0.127" layer="51"/>
-<wire x1="-6.1" y1="9" x2="-6.1" y2="-6" width="0.127" layer="51"/>
-<wire x1="6.1" y1="-6" x2="6.1" y2="9" width="0.127" layer="51"/>
-<wire x1="-6.1" y1="2" x2="-6.1" y2="9" width="0.2" layer="21"/>
-<wire x1="-6.1" y1="9" x2="6.1" y2="9" width="0.2" layer="21"/>
-<wire x1="6.1" y1="9" x2="6.1" y2="2" width="0.2" layer="21"/>
-<wire x1="-6.1" y1="-2" x2="-6.1" y2="-3" width="0.2" layer="21"/>
-<wire x1="6.1" y1="-3" x2="6.1" y2="-2" width="0.2" layer="21"/>
-<text x="0" y="-2" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-4" size="1.27" layer="27" align="bottom-center">&gt;VALUE</text>
-</package>
 <package name="USB-C-16P" urn="urn:adsk.eagle:footprint:17045955/1" library_version="169">
 <wire x1="-4.32" y1="-2.6" x2="-4.32" y2="4.7" width="0.127" layer="51"/>
 <wire x1="4.32" y1="4.7" x2="-4.32" y2="4.7" width="0.127" layer="51"/>
@@ -4191,6 +4169,25 @@ Tactile switch, normally-open.</description>
 <pad name="FIX3" x="4.32" y="4.18" drill="0.6" diameter="1" shape="long" rot="R90"/>
 <pad name="FIX4" x="4.32" y="0" drill="0.6" diameter="0.8" shape="long" rot="R90"/>
 </package>
+<package name="RJ10" urn="urn:adsk.eagle:footprint:15628372/1" library_version="173">
+<hole x="-5" y="0" drill="2.4"/>
+<hole x="5" y="0" drill="2.4"/>
+<pad name="P$1" x="1.53" y="2.3" drill="0.9"/>
+<pad name="P$2" x="0.51" y="4.84" drill="0.9"/>
+<pad name="P$3" x="-0.51" y="2.3" drill="0.9"/>
+<pad name="P$4" x="-1.53" y="4.84" drill="0.9"/>
+<wire x1="-5" y1="-6" x2="5" y2="-6" width="0.127" layer="51"/>
+<wire x1="-5" y1="7" x2="5" y2="7" width="0.127" layer="51"/>
+<wire x1="-5" y1="7" x2="-5" y2="-6" width="0.127" layer="51"/>
+<wire x1="5" y1="-6" x2="5" y2="7" width="0.127" layer="51"/>
+<wire x1="-5" y1="2" x2="-5" y2="7" width="0.2" layer="21"/>
+<wire x1="-5" y1="7" x2="5" y2="7" width="0.2" layer="21"/>
+<wire x1="5" y1="7" x2="5" y2="2" width="0.2" layer="21"/>
+<wire x1="-5" y1="-2" x2="-5" y2="-3" width="0.2" layer="21"/>
+<wire x1="5" y1="-3" x2="5" y2="-2" width="0.2" layer="21"/>
+<text x="0" y="-2" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-4" size="1.27" layer="27" align="bottom-center">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="HDRV6W64P254_2X3_1016X508X838B" urn="urn:adsk.eagle:package:11765966/8" type="model" library_version="147">
@@ -4231,15 +4228,14 @@ Tactile switch, normally-open.</description>
 <packageinstance name="AUDIO-JACK-PJ321"/>
 </packageinstances>
 </package3d>
-<package3d name="RJ12" urn="urn:adsk.eagle:package:15744402/2" type="model" library_version="158">
-<description>RJ12 6/6 PCB mount socket</description>
-<packageinstances>
-<packageinstance name="RJ12"/>
-</packageinstances>
-</package3d>
 <package3d name="USB-C-16P" urn="urn:adsk.eagle:package:17045956/2" type="model" library_version="169">
 <packageinstances>
 <packageinstance name="USB-C-16P"/>
+</packageinstances>
+</package3d>
+<package3d name="RJ10" urn="urn:adsk.eagle:package:15628373/2" type="model" library_version="173">
+<packageinstances>
+<packageinstance name="RJ10"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -4275,27 +4271,6 @@ Tactile switch, normally-open.</description>
 <pin name="3" x="5.08" y="2.54" visible="off" length="short" rot="R180"/>
 <pin name="4B" x="5.08" y="-5.08" visible="off" length="short" rot="R180"/>
 </symbol>
-<symbol name="M06" urn="urn:adsk.eagle:symbol:11790967/1" library_version="158">
-<description>M06</description>
-<wire x1="3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="5.08" x2="2.54" y2="5.08" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
-<wire x1="-2.54" y1="15.24" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="3.81" y1="-2.54" x2="3.81" y2="15.24" width="0.4064" layer="94"/>
-<wire x1="-2.54" y1="15.24" x2="3.81" y2="15.24" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="10.16" x2="2.54" y2="10.16" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="7.62" x2="2.54" y2="7.62" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="12.7" x2="2.54" y2="12.7" width="0.6096" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.54" y="16.002" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="3" x="7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="4" x="7.62" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="5" x="7.62" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="6" x="7.62" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
 <symbol name="USB-C-16P" urn="urn:adsk.eagle:symbol:17045954/2" library_version="170">
 <description>USB Type-C right angle PCB mount socket, with pins for USB v2.0 only (no USB3 data pins) and power pins bonded together.</description>
 <wire x1="-5.08" y1="15.24" x2="-5.08" y2="-15.24" width="0.254" layer="94"/>
@@ -4313,6 +4288,22 @@ Tactile switch, normally-open.</description>
 <pin name="D+" x="7.62" y="7.62" length="short" rot="R180"/>
 <pin name="SBU1" x="7.62" y="2.54" length="short" rot="R180"/>
 <pin name="VBUS" x="7.62" y="12.7" length="short" direction="pwr" rot="R180"/>
+</symbol>
+<symbol name="M04" urn="urn:adsk.eagle:symbol:11818435/1" library_version="173">
+<wire x1="3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="2.54" y2="5.08" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
+<wire x1="-2.54" y1="10.16" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="10.16" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="10.16" x2="3.81" y2="10.16" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="7.62" x2="2.54" y2="7.62" width="0.6096" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="10.922" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="3" x="7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="7.62" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4440,29 +4431,6 @@ Tactile switch, normally-open.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RJ12" urn="urn:adsk.eagle:component:15744403/2" library_version="158">
-<gates>
-<gate name="G$1" symbol="M06" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="RJ12">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:15744402/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="USB-C-16P" urn="urn:adsk.eagle:component:17045957/3" prefix="J" library_version="170">
 <description>USB-C socket with 16 pins, suitable only for backward compatibility with USB 2</description>
 <gates>
@@ -4482,6 +4450,28 @@ Tactile switch, normally-open.</description>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:17045956/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RJ10" urn="urn:adsk.eagle:component:15628374/2" prefix="J" library_version="173">
+<description>RJ10 jack (4P4C)</description>
+<gates>
+<gate name="G$1" symbol="M04" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-WURTH" package="RJ10">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+<connect gate="G$1" pin="3" pad="P$3"/>
+<connect gate="G$1" pin="4" pad="P$4"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:15628373/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5669,7 +5659,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="C2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="GND8" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="U$3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
-<part name="R7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
+<part name="R5" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
 <part name="U$1" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="C3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0805" package3d_urn="urn:adsk.eagle:package:7066318/4" value="1uF"/>
 <part name="C1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
@@ -5677,7 +5667,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="ICSP" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="ICSP" device="-PIN" package3d_urn="urn:adsk.eagle:package:11765966/8" value="ICSP"/>
 <part name="GND9" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="U$8" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
-<part name="S1" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="TAC_SWITCH_2PIN" device="SMT" package3d_urn="urn:adsk.eagle:package:11818379/4" value="RESET"/>
+<part name="SW3" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="TAC_SWITCH_2PIN" device="SMT" package3d_urn="urn:adsk.eagle:package:11818379/4" value="RESET"/>
 <part name="Z1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TVS" device="0603" package3d_urn="urn:adsk.eagle:package:11801346/2" value="PGB1010603"/>
 <part name="Z2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TVS" device="0603" package3d_urn="urn:adsk.eagle:package:11801346/2" value="PGB1010603"/>
 <part name="GND15" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
@@ -5687,15 +5677,15 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="XTL1" library="SuperHouse-Oscillators" library_urn="urn:adsk.eagle:library:11786724" deviceset="CRYSTAL-GND" device="3X2" package3d_urn="urn:adsk.eagle:package:7066259/2" value="16MHz"/>
 <part name="GND13" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="U$9" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
-<part name="R8" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="4K7"/>
-<part name="R11" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
-<part name="R12" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
+<part name="R6" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="4K7"/>
+<part name="R7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
+<part name="R8" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="22R"/>
 <part name="U$5" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="LED1" library="SuperHouse-LEDs" library_urn="urn:adsk.eagle:library:11790571" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:7066240/3" value="BLUE"/>
 <part name="F1" library="SuperHouse-Fuses" library_urn="urn:adsk.eagle:library:11769263" deviceset="PTC" device="" package3d_urn="urn:adsk.eagle:package:11769373/4" technology="050" value="500mA PTC 1812"/>
 <part name="IC1" library="SuperHouse-MCUs" library_urn="urn:adsk.eagle:library:11815114" deviceset="ATMEGA32U4NT" device="-TQFP" package3d_urn="urn:adsk.eagle:package:12190647/3"/>
-<part name="LED4" library="SuperHouse-LEDs" library_urn="urn:adsk.eagle:library:11790571" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:7066240/3" value="GREEN"/>
-<part name="R24" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="1K"/>
+<part name="LED2" library="SuperHouse-LEDs" library_urn="urn:adsk.eagle:library:11790571" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:7066240/3" value="GREEN"/>
+<part name="R11" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="1K"/>
 <part name="GND18" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="MOD1" library="SuperHouse-Displays" library_urn="urn:adsk.eagle:library:11966779" deviceset="OLED-I2C" device="-128X32-0.91-HEADER" package3d_urn="urn:adsk.eagle:package:15708159/2" value="OLED-I2C-128X32-0.91-HEADER"/>
 <part name="GND1" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
@@ -5706,7 +5696,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="R1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
 <part name="U$7" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="GND4" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="J3" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="AUDIO-JACK-PJ321" device="" package3d_urn="urn:adsk.eagle:package:11973214/2"/>
+<part name="J2" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="AUDIO-JACK-PJ321" device="" package3d_urn="urn:adsk.eagle:package:11973214/2"/>
 <part name="GND5" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="U$10" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 <part name="U$11" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
@@ -5722,25 +5712,21 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="GND3" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="C7" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0805" package3d_urn="urn:adsk.eagle:package:7066318/4" value="10uF"/>
 <part name="U$23" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
-<part name="S2" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3" value="Trigger Level"/>
+<part name="SW4" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="ENCODER" device="" package3d_urn="urn:adsk.eagle:package:15707118/3" value="Trigger Level"/>
 <part name="GND6" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="GND2" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="J2" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="RJ12" device="" package3d_urn="urn:adsk.eagle:package:15744402/2"/>
-<part name="Q2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="MOSFET-NCHANNEL" device="-233" package3d_urn="urn:adsk.eagle:package:11815952/3" value="2N7002"/>
 <part name="GND12" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="R2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="150R"/>
-<part name="R3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
-<part name="R4" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
+<part name="R2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
 <part name="U$4" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="5V" device=""/>
 <part name="IC2" library="SuperHouse-ICs" library_urn="urn:adsk.eagle:library:11768868" deviceset="HX711" device="-SOP16L" package3d_urn="urn:adsk.eagle:package:17215012/2"/>
-<part name="J5" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="USB-C-16P" device="-16P" package3d_urn="urn:adsk.eagle:package:17045956/2"/>
-<part name="R5" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
-<part name="R6" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
+<part name="J3" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="USB-C-16P" device="-16P" package3d_urn="urn:adsk.eagle:package:17045956/2"/>
+<part name="R3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
+<part name="R4" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="5k1"/>
 <part name="C8" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="C9" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="CAP" device="0603" package3d_urn="urn:adsk.eagle:package:7066315/6" value="100nF"/>
 <part name="R9" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="100R"/>
 <part name="R10" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="100R"/>
-<part name="Q3" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TRANS_PNP" device="SOT23-BEC" package3d_urn="urn:adsk.eagle:package:28748/2" technology="MMBT3906LT1" value="2N3906"/>
+<part name="Q2" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="TRANS_PNP" device="SOT23-BEC" package3d_urn="urn:adsk.eagle:package:28748/2" technology="MMBT3906LT1" value="2N3906"/>
 <part name="R13" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="10K"/>
 <part name="R14" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="RESISTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11768543/2" value="8K2"/>
 <part name="L1" library="SuperHouse-DiscreteSemi" library_urn="urn:adsk.eagle:library:11768461" deviceset="INDUCTOR" device="0603" package3d_urn="urn:adsk.eagle:package:11872694/3" value="3.3uH"/>
@@ -5752,8 +5738,10 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <part name="SW2" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="SWITCH-SPDT-4TABS" device="SMT" package3d_urn="urn:adsk.eagle:package:7066359/2"/>
 <part name="GND14" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
 <part name="GND16" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
-<part name="S3" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="TAC_SWITCH" device="-PTH-4.5" package3d_urn="urn:adsk.eagle:package:7066371/2"/>
+<part name="SW5" library="SuperHouse-Switches" library_urn="urn:adsk.eagle:library:11744182" deviceset="TAC_SWITCH" device="-PTH-4.5" package3d_urn="urn:adsk.eagle:package:7066371/2"/>
 <part name="GND17" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="GND" device=""/>
+<part name="J1" library="SuperHouse-Connectors" library_urn="urn:adsk.eagle:library:11765989" deviceset="RJ10" device="-WURTH" package3d_urn="urn:adsk.eagle:package:15628373/2"/>
+<part name="U$14" library="SuperHouse-SupplySymbols" library_urn="urn:adsk.eagle:library:11790503" deviceset="NC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5762,7 +5750,7 @@ Handy to use on those pins that you want to mark as NC on a schematic.</descript
 <text x="142.24" y="63.5" size="2.54" layer="94" ratio="12">ICSP Header</text>
 <text x="86.36" y="170.18" size="2.54" layer="94" ratio="12">ATmega32u4 MCU</text>
 <text x="142.24" y="20.32" size="3.048" layer="94">SuperButton Assistive Technology Button</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V2.1 (2020-04-23)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V3.0 (2020-05-08)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: SB</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2020 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -5808,12 +5796,11 @@ D3: I2C SCL
 D4: HX711 DOUT
 D5: HX711 SCK
 D6: Relay
-D7: Mode switch
-D12: Haptic feedback
+D7: Beep stretch switch (enable SW pull-up)
 D13: LED</text>
 <text x="39.37" y="97.155" size="1.27" layer="97">NO</text>
 <text x="39.37" y="102.235" size="1.27" layer="97">NC</text>
-<text x="114.3" y="5.08" size="1.778" layer="97">To Do:
+<text x="142.24" y="27.94" size="1.778" layer="97">To Do:
 Split stereo socket</text>
 <wire x1="81.28" y1="68.58" x2="81.28" y2="35.56" width="0.254" layer="97" style="longdash"/>
 <wire x1="132.08" y1="68.58" x2="132.08" y2="35.56" width="0.254" layer="97" style="longdash"/>
@@ -5835,7 +5822,7 @@ Split stereo socket</text>
 <instance part="U$3" gate="G$1" x="33.02" y="160.02" smashed="yes">
 <attribute name="VALUE" x="32.004" y="163.576" size="1.778" layer="96"/>
 </instance>
-<instance part="R7" gate="G$1" x="160.02" y="162.56" smashed="yes" rot="R90">
+<instance part="R5" gate="G$1" x="160.02" y="162.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="163.83" y="164.0586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="163.83" y="161.798" size="1.778" layer="96"/>
 </instance>
@@ -5863,7 +5850,7 @@ Split stereo socket</text>
 <instance part="U$8" gate="G$1" x="172.72" y="55.88" smashed="yes">
 <attribute name="VALUE" x="171.704" y="59.436" size="1.778" layer="96"/>
 </instance>
-<instance part="S1" gate="1" x="152.4" y="157.48" smashed="yes">
+<instance part="SW3" gate="1" x="152.4" y="157.48" smashed="yes">
 <attribute name="NAME" x="147.955" y="167.005" size="1.778" layer="95"/>
 <attribute name="VALUE" x="148.082" y="164.719" size="1.778" layer="96"/>
 </instance>
@@ -5897,15 +5884,15 @@ Split stereo socket</text>
 <instance part="U$9" gate="G$1" x="66.04" y="160.02" smashed="yes">
 <attribute name="VALUE" x="65.024" y="163.576" size="1.778" layer="96"/>
 </instance>
-<instance part="R8" gate="G$1" x="66.04" y="152.4" smashed="yes" rot="R90">
+<instance part="R6" gate="G$1" x="66.04" y="152.4" smashed="yes" rot="R90">
 <attribute name="NAME" x="64.5414" y="148.59" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="69.342" y="148.59" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R11" gate="G$1" x="144.78" y="129.54" smashed="yes">
+<instance part="R7" gate="G$1" x="144.78" y="129.54" smashed="yes">
 <attribute name="NAME" x="140.97" y="131.0386" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.97" y="126.238" size="1.778" layer="96"/>
 </instance>
-<instance part="R12" gate="G$1" x="154.94" y="127" smashed="yes">
+<instance part="R8" gate="G$1" x="154.94" y="127" smashed="yes">
 <attribute name="NAME" x="151.13" y="128.4986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="151.13" y="123.698" size="1.778" layer="96"/>
 </instance>
@@ -5924,11 +5911,11 @@ Split stereo socket</text>
 <attribute name="NAME" x="195.58" y="157.48" size="1.778" layer="95"/>
 <attribute name="VALUE" x="193.04" y="160.02" size="1.778" layer="96"/>
 </instance>
-<instance part="LED4" gate="G$1" x="53.34" y="142.24" smashed="yes">
+<instance part="LED2" gate="G$1" x="53.34" y="142.24" smashed="yes">
 <attribute name="NAME" x="56.896" y="137.668" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="59.055" y="137.668" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R24" gate="G$1" x="53.34" y="152.4" smashed="yes" rot="R270">
+<instance part="R11" gate="G$1" x="53.34" y="152.4" smashed="yes" rot="R270">
 <attribute name="NAME" x="54.8386" y="156.21" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="50.038" y="156.21" size="1.778" layer="96" rot="R270"/>
 </instance>
@@ -5960,7 +5947,7 @@ Split stereo socket</text>
 <attribute name="NAME" x="36.83" y="75.1586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="36.83" y="72.898" size="1.778" layer="96"/>
 </instance>
-<instance part="J3" gate="G$1" x="66.04" y="101.6" smashed="yes" rot="R180">
+<instance part="J2" gate="G$1" x="66.04" y="101.6" smashed="yes" rot="R180">
 <attribute name="NAME" x="71.12" y="98.552" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="63.5" y="93.98" size="1.778" layer="96"/>
 </instance>
@@ -5988,7 +5975,7 @@ Split stereo socket</text>
 <instance part="U$23" gate="G$1" x="43.18" y="160.02" smashed="yes">
 <attribute name="VALUE" x="42.164" y="163.576" size="1.778" layer="96"/>
 </instance>
-<instance part="S2" gate="G$1" x="43.18" y="25.4" smashed="yes">
+<instance part="SW4" gate="G$1" x="43.18" y="25.4" smashed="yes">
 <attribute name="NAME" x="43.18" y="33.782" size="1.778" layer="95" align="bottom-center"/>
 <attribute name="VALUE" x="43.18" y="15.24" size="1.778" layer="96" align="bottom-center"/>
 </instance>
@@ -5998,22 +5985,22 @@ Split stereo socket</text>
 <instance part="GND2" gate="1" x="22.86" y="15.24" smashed="yes">
 <attribute name="VALUE" x="20.32" y="12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="R4" gate="G$1" x="58.42" y="38.1" smashed="yes" rot="R90">
+<instance part="R2" gate="G$1" x="58.42" y="38.1" smashed="yes" rot="R90">
 <attribute name="NAME" x="62.23" y="39.5986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="62.23" y="37.338" size="1.778" layer="96"/>
 </instance>
 <instance part="U$4" gate="G$1" x="58.42" y="45.72" smashed="yes">
 <attribute name="VALUE" x="57.404" y="49.276" size="1.778" layer="96"/>
 </instance>
-<instance part="J5" gate="G$1" x="91.44" y="121.92" smashed="yes">
+<instance part="J3" gate="G$1" x="91.44" y="121.92" smashed="yes">
 <attribute name="NAME" x="91.44" y="137.668" size="1.778" layer="95" align="bottom-center"/>
 <attribute name="VALUE" x="91.44" y="104.14" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="R5" gate="G$1" x="111.76" y="106.68" smashed="yes" rot="R90">
+<instance part="R3" gate="G$1" x="111.76" y="106.68" smashed="yes" rot="R90">
 <attribute name="NAME" x="115.062" y="102.87" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="115.062" y="107.95" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R6" gate="G$1" x="106.68" y="106.68" smashed="yes" rot="R90">
+<instance part="R4" gate="G$1" x="106.68" y="106.68" smashed="yes" rot="R90">
 <attribute name="NAME" x="109.982" y="102.87" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="109.982" y="107.95" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -6034,13 +6021,14 @@ Split stereo socket</text>
 <instance part="GND16" gate="1" x="96.52" y="40.64" smashed="yes">
 <attribute name="VALUE" x="93.98" y="38.1" size="1.778" layer="96"/>
 </instance>
-<instance part="S3" gate="S" x="106.68" y="154.94" smashed="yes">
+<instance part="SW5" gate="S" x="106.68" y="154.94" smashed="yes">
 <attribute name="NAME" x="104.14" y="161.29" size="1.778" layer="95"/>
 <attribute name="VALUE" x="104.14" y="148.59" size="1.778" layer="96"/>
 </instance>
 <instance part="GND17" gate="1" x="114.3" y="147.32" smashed="yes">
 <attribute name="VALUE" x="111.76" y="144.78" size="1.778" layer="96"/>
 </instance>
+<instance part="U$14" gate="G$1" x="223.52" y="99.06" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -6052,10 +6040,10 @@ Split stereo socket</text>
 <label x="226.06" y="144.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="SW1"/>
+<pinref part="SW4" gate="G$1" pin="SW1"/>
 <wire x1="53.34" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
 <label x="60.96" y="30.48" size="1.27" layer="95" xref="yes"/>
-<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="58.42" y1="30.48" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="33.02" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
 <junction x="58.42" y="30.48"/>
@@ -6068,10 +6056,10 @@ Split stereo socket</text>
 <label x="226.06" y="147.32" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="S3" gate="S" pin="2"/>
+<pinref part="SW5" gate="S" pin="2"/>
 <wire x1="101.6" y1="152.4" x2="99.06" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="152.4" x2="99.06" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="S3" gate="S" pin="1"/>
+<pinref part="SW5" gate="S" pin="1"/>
 <wire x1="99.06" y1="154.94" x2="101.6" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="154.94" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
 <junction x="99.06" y="154.94"/>
@@ -6087,7 +6075,7 @@ Split stereo socket</text>
 </net>
 <net name="5V" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="U$1" gate="G$1" pin="5V"/>
 </segment>
 <segment>
@@ -6137,7 +6125,7 @@ Split stereo socket</text>
 <segment>
 <wire x1="66.04" y1="157.48" x2="66.04" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="U$9" gate="G$1" pin="5V"/>
-<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="R6" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="MOD1" gate="G$1" pin="VCC"/>
@@ -6157,7 +6145,7 @@ Split stereo socket</text>
 <wire x1="43.18" y1="160.02" x2="43.18" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="U$4" gate="G$1" pin="5V"/>
 <wire x1="58.42" y1="43.18" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 </segment>
@@ -6165,7 +6153,7 @@ Split stereo socket</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="S1" gate="1" pin="P"/>
+<pinref part="SW3" gate="1" pin="P"/>
 </segment>
 <segment>
 <wire x1="20.32" y1="137.16" x2="20.32" y2="134.62" width="0.1524" layer="91"/>
@@ -6200,16 +6188,16 @@ Split stereo socket</text>
 <pinref part="Z2" gate="G$1" pin="1"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <junction x="116.84" y="83.82"/>
-<pinref part="J5" gate="G$1" pin="GND"/>
+<pinref part="J3" gate="G$1" pin="GND"/>
 <wire x1="99.06" y1="109.22" x2="101.6" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="109.22" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="83.82" x2="106.68" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="83.82" x2="111.76" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="83.82" x2="116.84" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="101.6" x2="111.76" y2="83.82" width="0.1524" layer="91"/>
 <junction x="111.76" y="83.82"/>
-<pinref part="R6" gate="G$1" pin="1"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="101.6" x2="106.68" y2="83.82" width="0.1524" layer="91"/>
 <junction x="106.68" y="83.82"/>
 <junction x="132.08" y="83.82"/>
@@ -6255,7 +6243,7 @@ Split stereo socket</text>
 </segment>
 <segment>
 <pinref part="GND18" gate="1" pin="GND"/>
-<pinref part="LED4" gate="G$1" pin="C"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
 <wire x1="53.34" y1="137.16" x2="53.34" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -6278,17 +6266,17 @@ Split stereo socket</text>
 <wire x1="43.18" y1="137.16" x2="43.18" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="GND"/>
+<pinref part="SW4" gate="G$1" pin="GND"/>
 <wire x1="53.34" y1="20.32" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="63.5" y1="20.32" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="S2" gate="G$1" pin="SW2"/>
+<pinref part="SW4" gate="G$1" pin="SW2"/>
 <wire x1="53.34" y1="25.4" x2="63.5" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="25.4" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
 <junction x="63.5" y="20.32"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="COM"/>
+<pinref part="SW4" gate="G$1" pin="COM"/>
 <wire x1="33.02" y1="20.32" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="22.86" y1="20.32" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
@@ -6335,11 +6323,11 @@ Split stereo socket</text>
 <junction x="121.92" y="48.26"/>
 </segment>
 <segment>
-<pinref part="S3" gate="S" pin="4"/>
+<pinref part="SW5" gate="S" pin="4"/>
 <pinref part="GND17" gate="1" pin="GND"/>
 <wire x1="111.76" y1="152.4" x2="114.3" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="152.4" x2="114.3" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="S3" gate="S" pin="3"/>
+<pinref part="SW5" gate="S" pin="3"/>
 <wire x1="111.76" y1="154.94" x2="114.3" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="154.94" x2="114.3" y2="152.4" width="0.1524" layer="91"/>
 <junction x="114.3" y="152.4"/>
@@ -6351,8 +6339,8 @@ Split stereo socket</text>
 <wire x1="175.26" y1="157.48" x2="160.02" y2="157.48" width="0.1524" layer="91"/>
 <junction x="160.02" y="157.48"/>
 <label x="165.1" y="157.48" size="1.778" layer="95"/>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="S1" gate="1" pin="S"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="SW3" gate="1" pin="S"/>
 <pinref part="IC1" gate="G$1" pin="/RESET"/>
 </segment>
 <segment>
@@ -6414,9 +6402,9 @@ Split stereo socket</text>
 <wire x1="116.84" y1="129.54" x2="116.84" y2="120.65" width="0.1524" layer="91"/>
 <junction x="116.84" y="129.54"/>
 <pinref part="Z1" gate="G$1" pin="2"/>
-<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="R7" gate="G$1" pin="1"/>
 <label x="127" y="129.54" size="1.778" layer="95"/>
-<pinref part="J5" gate="G$1" pin="D-"/>
+<pinref part="J3" gate="G$1" pin="D-"/>
 <wire x1="99.06" y1="127" x2="106.68" y2="127" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="127" x2="109.22" y2="129.54" width="0.1524" layer="91"/>
 </segment>
@@ -6428,10 +6416,10 @@ Split stereo socket</text>
 <wire x1="124.46" y1="127" x2="124.46" y2="120.65" width="0.1524" layer="91"/>
 <junction x="124.46" y="127"/>
 <pinref part="Z2" gate="G$1" pin="2"/>
-<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="R8" gate="G$1" pin="1"/>
 <label x="127" y="127" size="1.778" layer="95"/>
 <wire x1="109.22" y1="127" x2="106.68" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="D+"/>
+<pinref part="J3" gate="G$1" pin="D+"/>
 <wire x1="106.68" y1="129.54" x2="99.06" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -6439,7 +6427,7 @@ Split stereo socket</text>
 <segment>
 <wire x1="175.26" y1="129.54" x2="149.86" y2="129.54" width="0.1524" layer="91"/>
 <label x="165.1" y="129.54" size="1.778" layer="95"/>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="IC1" gate="G$1" pin="D-"/>
 </segment>
 </net>
@@ -6447,7 +6435,7 @@ Split stereo socket</text>
 <segment>
 <wire x1="160.02" y1="127" x2="175.26" y2="127" width="0.1524" layer="91"/>
 <label x="165.1" y="127" size="1.778" layer="95"/>
-<pinref part="R12" gate="G$1" pin="2"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="IC1" gate="G$1" pin="D+"/>
 </segment>
 </net>
@@ -6489,7 +6477,7 @@ Split stereo socket</text>
 <label x="226.06" y="129.54" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="R24" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="53.34" y1="157.48" x2="53.34" y2="160.02" width="0.1524" layer="91"/>
 <label x="53.34" y="160.02" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -6553,7 +6541,7 @@ Split stereo socket</text>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="66.04" y1="147.32" x2="66.04" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
@@ -6565,7 +6553,7 @@ Split stereo socket</text>
 <label x="226.06" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="A"/>
+<pinref part="SW4" gate="G$1" pin="A"/>
 <wire x1="33.02" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
 <label x="27.94" y="30.48" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -6577,7 +6565,7 @@ Split stereo socket</text>
 <label x="226.06" y="91.44" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="B"/>
+<pinref part="SW4" gate="G$1" pin="B"/>
 <wire x1="33.02" y1="25.4" x2="27.94" y2="25.4" width="0.1524" layer="91"/>
 <label x="27.94" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -6637,7 +6625,7 @@ Split stereo socket</text>
 <segment>
 <pinref part="F1" gate="A" pin="1"/>
 <wire x1="99.06" y1="134.62" x2="119.38" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="VBUS"/>
+<pinref part="J3" gate="G$1" pin="VBUS"/>
 </segment>
 </net>
 <net name="A4" class="0">
@@ -6680,8 +6668,8 @@ Split stereo socket</text>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="LED4" gate="G$1" pin="A"/>
-<pinref part="R24" gate="G$1" pin="2"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="144.78" x2="53.34" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -6695,10 +6683,10 @@ Split stereo socket</text>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="J3" gate="G$1" pin="4B"/>
+<pinref part="J2" gate="G$1" pin="4B"/>
 <wire x1="58.42" y1="104.14" x2="58.42" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="106.68" x2="60.96" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="4A"/>
+<pinref part="J2" gate="G$1" pin="4A"/>
 <wire x1="60.96" y1="104.14" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="106.68" x2="58.42" y2="111.76" width="0.1524" layer="91"/>
 <junction x="58.42" y="106.68"/>
@@ -6710,24 +6698,24 @@ Split stereo socket</text>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="111.76" x2="106.68" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="CC2"/>
+<pinref part="J3" gate="G$1" pin="CC2"/>
 <wire x1="106.68" y1="114.3" x2="99.06" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="111.76" x2="111.76" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="CC1"/>
+<pinref part="J3" gate="G$1" pin="CC1"/>
 <wire x1="111.76" y1="116.84" x2="99.06" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="SW1" gate="G$1" pin="COM"/>
-<pinref part="J3" gate="G$1" pin="3"/>
+<pinref part="J2" gate="G$1" pin="3"/>
 <wire x1="55.88" y1="99.06" x2="60.96" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -6760,12 +6748,9 @@ Split stereo socket</text>
 <wire x1="198.12" y1="101.6" x2="10.16" y2="101.6" width="0.254" layer="97" style="longdash"/>
 <wire x1="10.16" y1="101.6" x2="10.16" y2="175.26" width="0.254" layer="97" style="longdash"/>
 <text x="15.24" y="139.7" size="1.778" layer="97">E-</text>
-<text x="15.24" y="147.32" size="1.778" layer="97">Haptic -</text>
-<text x="15.24" y="149.86" size="1.778" layer="97">Haptic +</text>
 <text x="15.24" y="142.24" size="1.778" layer="97">A+</text>
 <text x="15.24" y="144.78" size="1.778" layer="97">A-</text>
 <text x="15.24" y="137.16" size="1.778" layer="97">E+</text>
-<text x="15.24" y="121.92" size="1.27" layer="97">Haptic Feedback Control</text>
 <text x="144.78" y="160.02" size="1.27" layer="97">Sample rate set to 10Hz by pulling RATE pin low</text>
 </plain>
 <instances>
@@ -6789,7 +6774,7 @@ Split stereo socket</text>
 <attribute name="NAME" x="57.15" y="141.1986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="57.15" y="136.398" size="1.778" layer="96"/>
 </instance>
-<instance part="Q3" gate="G$1" x="119.38" y="157.48" smashed="yes" rot="MR0">
+<instance part="Q2" gate="G$1" x="119.38" y="157.48" smashed="yes" rot="MR0">
 <attribute name="NAME" x="116.84" y="157.48" size="1.778" layer="95" font="vector" rot="MR0"/>
 <attribute name="VALUE" x="116.84" y="155.194" size="1.778" layer="96" font="vector" rot="MR0"/>
 </instance>
@@ -6817,30 +6802,18 @@ Split stereo socket</text>
 <attribute name="NAME" x="181.864" y="122.301" size="1.778" layer="95"/>
 <attribute name="VALUE" x="181.864" y="117.221" size="1.778" layer="96"/>
 </instance>
-<instance part="U$7" gate="G$1" x="38.1" y="162.56" smashed="yes">
-<attribute name="VALUE" x="37.084" y="166.116" size="1.778" layer="96"/>
+<instance part="U$7" gate="G$1" x="83.82" y="162.56" smashed="yes">
+<attribute name="VALUE" x="82.804" y="166.116" size="1.778" layer="96"/>
 </instance>
 <instance part="GND4" gate="1" x="38.1" y="132.08" smashed="yes">
 <attribute name="VALUE" x="35.56" y="129.54" size="1.778" layer="96"/>
 </instance>
-<instance part="J2" gate="G$1" x="27.94" y="137.16" smashed="yes">
-<attribute name="VALUE" x="25.4" y="132.08" size="1.778" layer="96"/>
-<attribute name="NAME" x="25.4" y="153.162" size="1.778" layer="95"/>
+<instance part="GND12" gate="1" x="83.82" y="106.68" smashed="yes">
+<attribute name="VALUE" x="81.28" y="104.14" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="43.18" y="119.38" smashed="yes">
-<attribute name="NAME" x="48.26" y="121.92" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.26" y="119.38" size="1.778" layer="96"/>
-</instance>
-<instance part="GND12" gate="1" x="43.18" y="106.68" smashed="yes">
-<attribute name="VALUE" x="40.64" y="104.14" size="1.778" layer="96"/>
-</instance>
-<instance part="R2" gate="G$1" x="43.18" y="129.54" smashed="yes" rot="R90">
-<attribute name="NAME" x="41.6814" y="125.73" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="46.482" y="125.73" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R3" gate="G$1" x="33.02" y="114.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="31.5214" y="110.49" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="36.322" y="110.49" size="1.778" layer="96" rot="R90"/>
+<instance part="J1" gate="G$1" x="22.86" y="137.16" smashed="yes">
+<attribute name="VALUE" x="15.24" y="132.08" size="1.778" layer="96"/>
+<attribute name="NAME" x="20.32" y="148.082" size="1.778" layer="95"/>
 </instance>
 </instances>
 <busses>
@@ -6848,10 +6821,7 @@ Split stereo socket</text>
 <nets>
 <net name="5V" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="6"/>
-<wire x1="35.56" y1="149.86" x2="38.1" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="5V"/>
-<wire x1="38.1" y1="149.86" x2="38.1" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VSUP"/>
 <wire x1="132.08" y1="154.94" x2="129.54" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="154.94" x2="129.54" y2="162.56" width="0.1524" layer="91"/>
@@ -6863,21 +6833,15 @@ Split stereo socket</text>
 <junction x="129.54" y="162.56"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="180.34" y1="162.56" x2="180.34" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="Q3" gate="G$1" pin="E"/>
+<pinref part="Q2" gate="G$1" pin="E"/>
 <wire x1="129.54" y1="162.56" x2="116.84" y2="162.56" width="0.1524" layer="91"/>
 <junction x="116.84" y="162.56"/>
-<wire x1="38.1" y1="162.56" x2="116.84" y2="162.56" width="0.1524" layer="91"/>
-<junction x="38.1" y="162.56"/>
+<wire x1="83.82" y1="162.56" x2="116.84" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="43.18" y1="114.3" x2="43.18" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="33.02" y1="109.22" x2="43.18" y2="109.22" width="0.1524" layer="91"/>
-<junction x="43.18" y="109.22"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="C10" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="137.16" x2="93.98" y2="109.22" width="0.1524" layer="91"/>
@@ -6904,7 +6868,6 @@ Split stereo socket</text>
 <wire x1="165.1" y1="109.22" x2="170.18" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="109.22" x2="180.34" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="109.22" x2="114.3" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="109.22" x2="83.82" y2="109.22" width="0.1524" layer="91"/>
 <junction x="83.82" y="109.22"/>
 <wire x1="170.18" y1="116.84" x2="170.18" y2="109.22" width="0.1524" layer="91"/>
 <junction x="170.18" y="109.22"/>
@@ -6912,10 +6875,11 @@ Split stereo socket</text>
 <junction x="165.1" y="109.22"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="139.7" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="139.7" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="38.1" y1="139.7" x2="38.1" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<label x="33.02" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D5" class="0">
@@ -6973,7 +6937,7 @@ Split stereo socket</text>
 <pinref part="IC2" gate="G$1" pin="BASE"/>
 <wire x1="132.08" y1="147.32" x2="127" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="127" y1="147.32" x2="127" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="Q3" gate="G$1" pin="B"/>
+<pinref part="Q2" gate="G$1" pin="B"/>
 <wire x1="127" y1="157.48" x2="121.92" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -6990,8 +6954,7 @@ Split stereo socket</text>
 </net>
 <net name="E+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="137.16" x2="48.26" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="137.16" x2="48.26" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="137.16" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="L1" gate="G$1" pin="1"/>
 <wire x1="96.52" y1="152.4" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
@@ -7003,36 +6966,14 @@ Split stereo socket</text>
 <wire x1="93.98" y1="144.78" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
 <junction x="93.98" y="152.4"/>
 <wire x1="48.26" y1="152.4" x2="83.82" y2="152.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="D12" class="0">
-<segment>
-<pinref part="Q2" gate="G$1" pin="G"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="119.38" x2="33.02" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="119.38" x2="25.4" y2="119.38" width="0.1524" layer="91"/>
-<junction x="33.02" y="119.38"/>
-<label x="25.4" y="119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="J2" gate="G$1" pin="5"/>
-<wire x1="35.56" y1="147.32" x2="43.18" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="147.32" x2="43.18" y2="134.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="Q2" gate="G$1" pin="D"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<label x="33.02" y="137.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="L1" gate="G$1" pin="2"/>
-<pinref part="Q3" gate="G$1" pin="C"/>
+<pinref part="Q2" gate="G$1" pin="C"/>
 <wire x1="111.76" y1="152.4" x2="114.3" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="152.4" x2="116.84" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="152.4" x2="124.46" y2="152.4" width="0.1524" layer="91"/>
@@ -7050,9 +6991,9 @@ Split stereo socket</text>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="139.7" x2="53.34" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="139.7" x2="53.34" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="3"/>
-<wire x1="53.34" y1="142.24" x2="35.56" y2="142.24" width="0.1524" layer="91"/>
-<label x="38.1" y="142.24" size="1.778" layer="95"/>
+<wire x1="53.34" y1="142.24" x2="30.48" y2="142.24" width="0.1524" layer="91"/>
+<label x="33.02" y="142.24" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="A-" class="0">
@@ -7060,9 +7001,9 @@ Split stereo socket</text>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="147.32" x2="53.34" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="147.32" x2="53.34" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="4"/>
-<wire x1="53.34" y1="144.78" x2="35.56" y2="144.78" width="0.1524" layer="91"/>
-<label x="38.1" y="144.78" size="1.778" layer="95"/>
+<wire x1="53.34" y1="144.78" x2="30.48" y2="144.78" width="0.1524" layer="91"/>
+<label x="33.02" y="144.78" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="4"/>
 </segment>
 </net>
 </nets>

@@ -13,7 +13,6 @@ Features:
  * 1 x input connection for a load-cell based button
  * 1 x USB connection for power or to emulate an input device
  * 1 x switched output (either N.O. or N.C.) to control other devices
- * Haptic feedback output
  * 128x32 OLED to show current force reading and activation threshold
  * Rotary encoder to adjust activation threshold
  * "Tare" button to reset zero point
