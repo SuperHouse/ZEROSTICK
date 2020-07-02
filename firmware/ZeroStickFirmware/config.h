@@ -23,9 +23,9 @@ float cal_value_x               = 20000.0; // ?
 float cal_value_y               = 20000.0; // ?
 
 #define   SCALE_TARE_TIME          2000  // The load cells need time before the first reading
-#define   SAMPLES_TO_AVERAGE          1  // Must be a binary multiple (1, 2, 4, 8, 16, etc)
+#define   SAMPLES_TO_AVERAGE          1  // Must be a simple binary multiple (1, 2, 4, 8, 16, etc)
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
-#define   MOUSE_INTERVAL              5  // ms between mouse position updates
+#define   MOUSE_INTERVAL             10  // ms between mouse position updates
 
 /* ----------------- Hardware-specific config ---------------------- */
 /*
@@ -52,6 +52,8 @@ float cal_value_y               = 20000.0; // ?
 /* Inputs */
 #define   TARE_BUTTON_PIN             6  // Pull this pin to GND to tare
 #define   DISABLE_PIN                 7  // Pull this pin to GND to disable
+#define   MOUSE_LEFT_BUTTON_PIN       8  // Pull this pin to GND for left click
+#define   MOUSE_RIGHT_BUTTON_PIN      9  // Pull this pin to GND for right click
 #endif
 /**** End of XIAO pins ****/
 
@@ -66,6 +68,8 @@ float cal_value_y               = 20000.0; // ?
 /* Inputs */
 #define   TARE_BUTTON_PIN            A1  // Pull this pin to GND to tare
 #define   DISABLE_PIN                 8  // Pull this pin to GND to disable
+#define   MOUSE_LEFT_BUTTON_PIN      10
+#define   MOUSE_RIGHT_BUTTON_PIN     11
 #endif
 /**** End of Leonardo pins ****/
 

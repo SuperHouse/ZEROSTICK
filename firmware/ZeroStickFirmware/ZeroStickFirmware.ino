@@ -1,9 +1,6 @@
 /**
    "Zero Deflection" Assistive Technology Joystick
 
-   Note: This version uses the "HX711_ADC" library. There is also
-   a version that uses the "HX711 Arduino Library" library.
-
    Uses strain gauges to measure force on a joystick that doesn't
    need to deflect. The joystick output is taken from the force
    applied to it, instead of the physical deflection of the stick.
@@ -21,6 +18,18 @@
    Position is measured as % deflection from the zero (central)
    position, ie: from -100% to +100%. This is equivalent to full
    effort by the user in each direction.
+
+                     Y axis
+                     +100%
+                       ^
+                       |
+    X axis   -100% <-- 0 --> +100%
+                       |
+                       v
+                     -100%
+
+   These percentages are scaled to suit different output methods,
+   including mouse emulation and joystick emulation.
 
    Internal dependencies. Install using Arduino library manager:
      "HX711_ADC" by Olav Kallhovd
@@ -78,7 +87,7 @@
 
    Copyright 2019-2020 SuperHouse Automation Pty Ltd www.superhouse.tv
 */
-#define VERSION "2.0"
+#define VERSION "2.1"
 /*--------------------------- Configuration ---------------------------------*/
 // Configuration should be done in the included file:
 #include "config.h"
@@ -88,6 +97,8 @@
 #include <Adafruit_DS3502.h>        // Digital potentiometer
 #ifdef ARDUINO_SEEED_XIAO_M0
 #include "Adafruit_TinyUSB.h"       // HID emulation
+//#include "TinyUSB_Mouse_and_Keyboard.h"       // HID emulation
+
 #endif
 #ifdef ARDUINO_AVR_LEONARDO
 #include "Mouse.h"                  // Mouse emulation
@@ -104,6 +115,12 @@ int8_t   g_input_y_position      = 0;   // Most recent force reading from Y axis
 uint32_t g_last_mouse_time       = 0;   // When we last sent a mouse event
 uint32_t g_last_joystick_time    = 0;   // When we last sent a joystick event
 uint32_t g_last_digipot_time     = 0;   // When we last updated the digipot outputs
+
+uint8_t  g_left_button_state     = 0;
+uint8_t  g_right_button_state    = 0;
+
+volatile boolean g_x_new_data_ready = 0; // Flag set in ISR when ADC says it has data
+volatile boolean g_y_new_data_ready = 0; // Flag set in ISR when ADC says it has data
 
 #ifdef ARDUINO_SEEED_XIAO_M0
 //  HID report descriptor using TinyUSB's template.
@@ -157,8 +174,10 @@ void setup()
   Serial.print("ZeroStick starting up, v");
   Serial.println(VERSION);
 
-  pinMode(DISABLE_PIN,     INPUT_PULLUP);
-  pinMode(TARE_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(DISABLE_PIN,            INPUT_PULLUP);
+  pinMode(TARE_BUTTON_PIN,        INPUT_PULLUP);
+  pinMode(MOUSE_LEFT_BUTTON_PIN,  INPUT_PULLUP);
+  pinMode(MOUSE_RIGHT_BUTTON_PIN, INPUT_PULLUP);
 
 #if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
@@ -214,6 +233,11 @@ void setup()
 
   scale_x.setCalFactor(cal_value_x); // Calibration value
   scale_y.setCalFactor(cal_value_y); // Calibration value
+
+  reportAdcSettings();
+
+  attachInterrupt(digitalPinToInterrupt(LOADCELL_X_DOUT_PIN), xDataReadyISR, FALLING);
+  attachInterrupt(digitalPinToInterrupt(LOADCELL_Y_DOUT_PIN), yDataReadyISR, FALLING);
 }
 
 /**
@@ -223,12 +247,55 @@ void loop()
 {
   checkTareButton();
   checkTareStatus();
+  checkMouseButtons();
 
   readInputPosition();
 
   updateMouseOutput();
   updateJoystickOutput();
   updateDigipotOutputs();
+}
+
+/**
+  Report ADC performance values and settings
+*/
+void reportAdcSettings()
+{
+  Serial.print("X calibration value: ");
+  Serial.println(scale_x.getCalFactor());
+  Serial.print("X measured conversion time ms: ");
+  Serial.println(scale_x.getConversionTime());
+  Serial.print("X measured sampling rate HZ: ");
+  Serial.println(scale_x.getSPS());
+  Serial.print("X measured settlingtime ms: ");
+  Serial.println(scale_x.getSettlingTime());
+
+  Serial.print("Y calibration value: ");
+  Serial.println(scale_y.getCalFactor());
+  Serial.print("Y measured conversion time ms: ");
+  Serial.println(scale_y.getConversionTime());
+  Serial.print("Y measured sampling rate HZ: ");
+  Serial.println(scale_y.getSPS());
+  Serial.print("Y measured settlingtime ms: ");
+  Serial.println(scale_y.getSettlingTime());
+}
+
+/**
+  ISR for X axis load cell
+*/
+void xDataReadyISR() {
+  if (scale_x.update()) {
+    g_x_new_data_ready = 1;
+  }
+}
+
+/**
+  ISR for Y axis load cell
+*/
+void yDataReadyISR() {
+  if (scale_y.update()) {
+    g_y_new_data_ready = 1;
+  }
 }
 
 /**
@@ -306,6 +373,52 @@ void updateMouseOutput()
 }
 
 /**
+
+*/
+void checkMouseButtons()
+{
+  uint8_t left_button_state = digitalRead(MOUSE_LEFT_BUTTON_PIN);
+  if (LOW == left_button_state)
+  {
+    if (HIGH == g_left_button_state)
+    {
+      usb_hid.mouseButtonPress(0, 1);
+      Serial.println("down");
+      g_left_button_state = LOW;
+    }
+  }
+  if (HIGH == left_button_state)
+  {
+    if (LOW == g_left_button_state)
+    {
+      usb_hid.mouseButtonRelease(0);
+      Serial.println("up");
+      g_left_button_state = HIGH;
+    }
+  }
+
+  uint8_t right_button_state = digitalRead(MOUSE_RIGHT_BUTTON_PIN);
+  if (LOW == right_button_state)
+  {
+    if (HIGH == g_right_button_state)
+    {
+      usb_hid.mouseButtonPress(0, 2);
+      Serial.println("down");
+      g_right_button_state = LOW;
+    }
+  }
+  if (HIGH == right_button_state)
+  {
+    if (LOW == g_right_button_state)
+    {
+      usb_hid.mouseButtonRelease(0);
+      Serial.println("up");
+      g_right_button_state = HIGH;
+    }
+  }
+}
+
+/**
   Send joystick values to the computer
 */
 void updateJoystickOutput()
@@ -354,32 +467,37 @@ void updateDigipotOutputs()
 */
 void readInputPosition()
 {
-  scale_x.update();
-  scale_y.update();
-
-  float g_sensor_x_raw_value = scale_x.getData();
-  g_input_x_position = (int)map(g_sensor_x_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
-  g_input_x_position = constrain(g_input_x_position, -100, 100);           // Prevent going out of bounds
-
-  if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
+  if (g_x_new_data_ready)
   {
-    g_input_x_position -= INPUT_DEAD_SPOT_SIZE;
-  } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
-    g_input_x_position += INPUT_DEAD_SPOT_SIZE;
-  } else {
-    g_input_x_position = 0;
+    float g_sensor_x_raw_value = scale_x.getData();
+    g_input_x_position = (int)map(g_sensor_x_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
+    g_input_x_position = constrain(g_input_x_position, -100, 100);           // Prevent going out of bounds
+
+    if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
+    {
+      g_input_x_position -= INPUT_DEAD_SPOT_SIZE;
+    } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
+      g_input_x_position += INPUT_DEAD_SPOT_SIZE;
+    } else {
+      g_input_x_position = 0;
+    }
+    g_x_new_data_ready = 0;
   }
 
-  float g_sensor_y_raw_value = scale_y.getData();
-  g_input_y_position = (int)map(g_sensor_y_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
-  g_input_y_position = constrain(g_input_y_position, -100, 100);           // Prevent going out of bounds
-  if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
+  if (g_y_new_data_ready)
   {
-    g_input_y_position -= INPUT_DEAD_SPOT_SIZE;
-  } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
-    g_input_y_position += INPUT_DEAD_SPOT_SIZE;
-  } else {
-    g_input_y_position = 0;
+    float g_sensor_y_raw_value = scale_y.getData();
+    g_input_y_position = (int)map(g_sensor_y_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
+    g_input_y_position = constrain(g_input_y_position, -100, 100);           // Prevent going out of bounds
+    if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
+    {
+      g_input_y_position -= INPUT_DEAD_SPOT_SIZE;
+    } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
+      g_input_y_position += INPUT_DEAD_SPOT_SIZE;
+    } else {
+      g_input_y_position = 0;
+    }
+    g_y_new_data_ready = 0;
   }
 
 #if ENABLE_SERIAL_DEBUGGING
