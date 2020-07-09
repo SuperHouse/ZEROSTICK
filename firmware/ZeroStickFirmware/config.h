@@ -19,8 +19,8 @@
 /* Serial */
 #define     SERIAL_BAUD_RATE     115200  // Speed for USB serial console
 
-float cal_value_x               = 20000.0; // ?
-float cal_value_y               = 20000.0; // ?
+float cal_value_x               = 10000.0; // ?
+float cal_value_y               = 10000.0; // ?
 
 #define   SCALE_TARE_TIME          2000  // The load cells need time before the first reading
 #define   SAMPLES_TO_AVERAGE          1  // Must be a simple binary multiple (1, 2, 4, 8, 16, etc)
@@ -29,17 +29,17 @@ float cal_value_y               = 20000.0; // ?
 
 /* ----------------- Hardware-specific config ---------------------- */
 /*
- * The hardware config for this project depends on a variable set by the
- * Arduino environment to detect the target board type. Currently only
- * 2 target boards are supported: Arduino Leonardo, and Seeeduino XIAO.
- * 
- * Update the pin definitions in the section for your target board.
- * 
- * This board detection method is also used in the program to load a
- * different HID library and configure it differently depending on the
- * board type. If using a Seeeduino XIAO, you must select Tools ->
- * USB Stack -> TinyUSB.
- */
+   The hardware config for this project depends on a variable set by the
+   Arduino environment to detect the target board type. Currently only
+   2 target boards are supported: Arduino Leonardo, and Seeeduino XIAO.
+
+   Update the pin definitions in the section for your target board.
+
+   This board detection method is also used in the program to load a
+   different HID library and configure it differently depending on the
+   board type. If using a Seeeduino XIAO, you must select Tools ->
+   USB Stack -> TinyUSB.
+*/
 
 /**** Pins for Seeeduino XIAO ****/
 #ifdef ARDUINO_SEEED_XIAO_M0
