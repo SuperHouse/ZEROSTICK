@@ -87,7 +87,7 @@
 
    Copyright 2019-2020 SuperHouse Automation Pty Ltd www.superhouse.tv
 */
-#define VERSION "2.1"
+#define VERSION "2.2"
 /*--------------------------- Configuration ---------------------------------*/
 // Configuration should be done in the included file:
 #include "config.h"
@@ -352,8 +352,8 @@ void updateMouseOutput()
       // Computer screens use the top left corner as the coordinate origin. This
       // means the Y axis is inverted: plus is down, minus is up. We have to
       // reverse the Y axis value to match it to mouse movement.
-      float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position;
-      float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position * -1;
+      float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * -1;  // X axis is reversed
+      float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position;
 
 #ifdef ARDUINO_SEEED_XIAO_M0
       if ( usb_hid.ready() )
@@ -428,8 +428,8 @@ void updateJoystickOutput()
   {
     if (millis() > g_last_joystick_time + JOYSTICK_INTERVAL)
     {
-      Joystick.setYAxis((int)scale_y_value * -1);  // Y axis is reversed
-      Joystick.setXAxis((int)scale_x_value);
+      Joystick.setYAxis((int)scale_y_value);
+      Joystick.setXAxis((int)scale_x_value * -1);  // X axis is reversed
 
       g_last_joystick_time = millis();
     }
@@ -519,7 +519,10 @@ void tareCellReading()
   { // Run startup, stabilization, and tare, both modules simultaneously
     if (!loadcell_x_rdy) loadcell_x_rdy = scale_x.startMultiple(SCALE_TARE_TIME);
     if (!loadcell_y_rdy) loadcell_y_rdy = scale_y.startMultiple(SCALE_TARE_TIME);
+    
   }
+  scale_x.tareNoDelay();
+  scale_y.tareNoDelay();
 #if ENABLE_SERIAL_DEBUGGING
   Serial.println("Tare complete");
 #endif
