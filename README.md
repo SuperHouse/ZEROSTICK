@@ -6,6 +6,8 @@ applied to it, without the joystick needing to move. The joystick
 "position" is determined from the force being applied to it, instead of
 any physical deflection of the stick.
 
+![ZeroStick Joystick](Images/ZEROSTICK-prototype-4.jpg)
+
 The term "position" is used here to signify the virtual position of the
 joystick, even though it doesn't physically move. As more force is
 applied, the virtual position of the joystick is considered to change.
