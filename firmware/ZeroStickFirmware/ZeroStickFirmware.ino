@@ -519,7 +519,6 @@ void tareCellReading()
   { // Run startup, stabilization, and tare, both modules simultaneously
     if (!loadcell_x_rdy) loadcell_x_rdy = scale_x.startMultiple(SCALE_TARE_TIME);
     if (!loadcell_y_rdy) loadcell_y_rdy = scale_y.startMultiple(SCALE_TARE_TIME);
-    
   }
   scale_x.tareNoDelay();
   scale_y.tareNoDelay();
