@@ -22,6 +22,12 @@ The position value is measured as % deflection from the zero (central)
 position, ie: from -100% to +100%. This is equivalent to full effort by
 the user in each direction.
 
+The force applied to the load cells is measured using a NAU7802 ADC
+with an I2C interface. The input channels are split so that a single
+ADC can read both the X and the Y axis load cells sequentially.
+
+![ZeroStick Load Cell Interface PCB](Images/ZSLC-v1_0.jpg)
+
 You can view more details at:
 
   http://www.superhouse.tv/zerostick
