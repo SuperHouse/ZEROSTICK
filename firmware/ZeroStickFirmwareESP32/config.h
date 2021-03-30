@@ -1,16 +1,16 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
-#define   ENABLE_SERIAL_DEBUGGING  true
-#define   ENABLE_SERIAL_DEBUGGING2 false
+#define   ENABLE_SERIAL_DEBUGGING  false
+#define   ENABLE_SERIAL_DEBUGGING2 true
 #define   ENABLE_DIGIPOT_OUTPUT   false
 #define   ENABLE_MOUSE_OUTPUT     false
 #define   ENABLE_JOYSTICK_OUTPUT  false
 
 /* Input behaviour */
 #define   INPUT_DEAD_SPOT_SIZE        3  // +/- this % will be ignored
-#define   SAMPLE_COUNT               12  // Average across this many samples
-#define   X_SCALING_FACTOR         (2.5)
-#define   Y_SCALING_FACTOR         (2.5)
+#define   SAMPLE_COUNT                5  // Average across this many samples
+//#define   X_SCALING_FACTOR         (2.5)
+//#define   Y_SCALING_FACTOR         (2.5)
 
 /* Mouse behaviour */
 // 0.1 is super slow. 1.0 is really fast. 0.5 is generally ok.
@@ -47,8 +47,8 @@
 #define   I2C_Y_SDA_PIN              23
 #define   I2C_Y_SCL_PIN              19
 
-#define   I2C_X_SDA_PIN              33
-#define   I2C_X_SCL_PIN              32
+#define   I2C_X_SDA_PIN              16
+#define   I2C_X_SCL_PIN              17
 
 
 /* I2C addresses */

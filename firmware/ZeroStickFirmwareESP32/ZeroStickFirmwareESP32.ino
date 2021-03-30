@@ -104,8 +104,8 @@
 //int16_t  g_zero_tare_offset_x    = 0;   // X axis tare correction
 //int16_t  g_zero_tare_offset_y    = 0;   // Y axis tare correction
 
-int8_t   g_input_x_position      = 0;   // Most recent force reading from X axis (+/- %)
-int8_t   g_input_y_position      = 0;   // Most recent force reading from Y axis (+/- %)
+int32_t   g_input_x_position      = 0;   // Most recent force reading from X axis (+/- %)
+int32_t   g_input_y_position      = 0;   // Most recent force reading from Y axis (+/- %)
 
 uint32_t g_last_mouse_time       = 0;   // When we last sent a mouse event
 uint32_t g_last_joystick_time    = 0;   // When we last sent a joystick event
@@ -114,11 +114,11 @@ uint32_t g_last_digipot_time     = 0;   // When we last updated the digipot outp
 uint8_t  g_left_button_state     = 0;
 uint8_t  g_right_button_state    = 0;
 
-//float    g_x_calibration_factor  = 0.0;
-//float    g_y_calibration_factor  = 0.0;
+float    g_x_calibration_factor  = 1.0;
+float    g_y_calibration_factor  = 1.0;
 int32_t  g_x_zero_offset         = 0;
 int32_t  g_y_zero_offset         = 0;
-uint8_t  g_next_channel_to_read  = 0;   // 0 = X axis, 1 = Y axis
+uint8_t  g_next_axis_to_read     = 0;   // 0 = X axis, 1 = Y axis
 uint8_t  g_channel_read_count    = 0;   // Accumulate how many times channel has been read
 int32_t  g_sensor_raw_value_sum  = 0;   // Accumulate channel readings
 
@@ -147,12 +147,14 @@ void setup()
   //Serial.print("ZeroStick starting up, v");
   //Serial.println(VERSION);
 
-  //pinMode(I2C_1_SDA_PIN, INPUT_PULLUP);
-  //pinMode(I2C_1_SCL_PIN, INPUT_PULLUP);
+  pinMode(I2C_X_SDA_PIN, INPUT_PULLUP);
+  pinMode(I2C_X_SCL_PIN, INPUT_PULLUP);
+
 
   //Wire.begin();
   Wire.begin(I2C_Y_SDA_PIN, I2C_Y_SCL_PIN); //uses default SDA and SCL and 100000HZ freq
-  Wire1.begin(I2C_X_SDA_PIN, I2C_X_SCL_PIN, 100000);
+  //Wire1.begin(I2C_X_SDA_PIN, I2C_X_SCL_PIN, 100000);
+  Wire1.begin(I2C_X_SDA_PIN, I2C_X_SCL_PIN);
 
   pinMode(DISABLE_PIN,            INPUT_PULLUP);
   pinMode(TARE_BUTTON_PIN,        INPUT_PULLUP);
@@ -168,7 +170,7 @@ void setup()
   }
   //Serial.println("ok.");
   loadcell_x.setGain(NAU7802_GAIN_64);        // Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
-  loadcell_x.setSampleRate(NAU7802_SPS_320); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
+  loadcell_x.setSampleRate(NAU7802_SPS_80); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
 
   // Start the Y-axis load cell interface
   //Serial.print("Starting Y-axis load cell interface: ");
@@ -179,7 +181,7 @@ void setup()
   }
   //Serial.println("ok.");
   loadcell_y.setGain(NAU7802_GAIN_64);        // Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
-  loadcell_y.setSampleRate(NAU7802_SPS_320); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
+  loadcell_y.setSampleRate(NAU7802_SPS_80); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
 
   delay(100);
 
@@ -266,80 +268,90 @@ void checkMouseButtons()
 */
 void readInputPosition()
 {
-  //Serial.println("Reading");
-
-  if (loadcell_x.available() == true)
+  if (0 == g_next_axis_to_read) // X axis
   {
-    if (0 == g_next_channel_to_read) // X axis
+    if (loadcell_x.available() == true)
     {
-      g_sensor_raw_value_sum += int(X_SCALING_FACTOR * loadcell_x.getReading());
+      g_sensor_raw_value_sum += loadcell_x.getReading();
       g_channel_read_count++;
 
       if (SAMPLE_COUNT == g_channel_read_count)
       {
-        int32_t sensor_raw_value = (g_sensor_raw_value_sum / SAMPLE_COUNT) - g_x_zero_offset;
-        //Serial.println(sensor_raw_value);
+        g_input_x_position = (g_sensor_raw_value_sum / SAMPLE_COUNT);
 
-        //Serial.print("X: ");
-        Serial.println(sensor_raw_value);
+        /*
+          int32_t sensor_raw_value = (g_sensor_raw_value_sum / SAMPLE_COUNT) - g_x_zero_offset;
+          //Serial.println(sensor_raw_value);
+          //Serial.print("X: ");
+          //Serial.println(sensor_raw_value);
+          g_input_x_position = sensor_raw_value;
+          //g_input_x_position = (int8_t)map(sensor_raw_value, -10000, 10000, -100, 100); // Adjust to a percentage of full force
+          //g_input_x_position = constrain(g_input_x_position, -100, 100);          // Prevent going out of bounds
 
-        g_input_x_position = (int8_t)map(sensor_raw_value, -10000, 10000, -100, 100); // Adjust to a percentage of full force
-        g_input_x_position = constrain(g_input_x_position, -100, 100);          // Prevent going out of bounds
-
-        if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
-        {
+          if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
+          {
           g_input_x_position -= INPUT_DEAD_SPOT_SIZE;
-        } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
+          } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
           g_input_x_position += INPUT_DEAD_SPOT_SIZE;
-        } else {
+          } else {
           g_input_x_position = 0;
-        }
+          }
+        */
 
         g_channel_read_count   = 0;
         g_sensor_raw_value_sum = 0;
-        g_next_channel_to_read = 1;
-        loadcell_x.setChannel(1);
-        loadcell_x.calibrateAFE();
+        g_next_axis_to_read = 1;
+        //loadcell_x.setChannel(1);
+        //loadcell_x.calibrateAFE();
       }
-    } else {                         // Y axis
+    }
+  }
+  if (1 == g_next_axis_to_read) // Y axis
+  {
+    if (loadcell_y.available() == true)
+    {
       //Serial.println("Reading Y");
       g_sensor_raw_value_sum += loadcell_y.getReading();
       g_channel_read_count++;
 
       if (SAMPLE_COUNT == g_channel_read_count)
       {
-        int32_t sensor_raw_value = (g_sensor_raw_value_sum / SAMPLE_COUNT) - g_y_zero_offset;
-        sensor_raw_value = (int)sensor_raw_value * Y_SCALING_FACTOR;
-        //Serial.print("           Y:");
-        //Serial.println(sensor_raw_value);
+        g_input_y_position = (g_sensor_raw_value_sum / SAMPLE_COUNT);
 
-        g_input_y_position = (int8_t)map(sensor_raw_value, -10000, 10000, -100, 100); // Adjust to a percentage of full force
-        g_input_y_position = constrain(g_input_y_position, -100, 100);          // Prevent going out of bounds
+        /*
+          int32_t sensor_raw_value = (g_sensor_raw_value_sum / SAMPLE_COUNT) - g_y_zero_offset;
+          sensor_raw_value = (int)sensor_raw_value * Y_SCALING_FACTOR;
+          //Serial.print("           Y:");
+          //Serial.println(sensor_raw_value);
+          g_input_y_position = sensor_raw_value;
+          //g_input_y_position = (int8_t)map(sensor_raw_value, -10000, 10000, -100, 100); // Adjust to a percentage of full force
+          //g_input_y_position = constrain(g_input_y_position, -100, 100);          // Prevent going out of bounds
 
-        if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
-        {
+          if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
+          {
           g_input_y_position -= INPUT_DEAD_SPOT_SIZE;
-        } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
+          } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
           g_input_y_position += INPUT_DEAD_SPOT_SIZE;
-        } else {
+          } else {
           g_input_y_position = 0;
-        }
+          }
+        */
 
         g_channel_read_count   = 0;
         g_sensor_raw_value_sum = 0;
-        g_next_channel_to_read = 0;
-        loadcell_x.setChannel(0);
-        loadcell_x.calibrateAFE();
+        g_next_axis_to_read = 0;
+        //loadcell_x.setChannel(1);
+        //loadcell_x.calibrateAFE();
       }
     }
+  }
 
 #if ENABLE_SERIAL_DEBUGGING2
-    Serial.print(g_input_x_position);
-    Serial.print("  ");
-    Serial.println(g_input_y_position);
+  Serial.print(g_input_x_position);
+  Serial.print("  ");
+  Serial.println(g_input_y_position);
 #endif
 
-  }
 }
 
 /**
@@ -347,31 +359,33 @@ void readInputPosition()
 */
 void tareCellReadings()
 {
-  loadcell_x.setChannel(0);
+  loadcell_x.setChannel(1);
   loadcell_x.calibrateAFE();                 // Internal calibration. Recommended after power up, gain changes, sample rate changes, or channel changes.
   loadcell_x.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
-  //loadcell_x.setCalibrationFactor(g_x_calibration_factor);
+  loadcell_x.setCalibrationFactor(g_x_calibration_factor);
   g_x_zero_offset = loadcell_x.getZeroOffset();
 #if ENABLE_SERIAL_DEBUGGING
+  Serial.println("\n-----------");
   Serial.print("X zero offset: ");
   Serial.println(loadcell_x.getZeroOffset());
   Serial.print("X calibration factor: ");
   Serial.println(loadcell_x.getCalibrationFactor());
 #endif
 
-  loadcell_x.setChannel(1);
-  loadcell_x.calibrateAFE();                 // Internal calibration. Recommended after power up, gain changes, sample rate changes, or channel changes.
-  loadcell_x.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
-  //loadcell_x.setCalibrationFactor(g_y_calibration_factor);
-  g_y_zero_offset = loadcell_x.getZeroOffset();
+  loadcell_y.setChannel(1);
+  loadcell_y.calibrateAFE();                 // Internal calibration. Recommended after power up, gain changes, sample rate changes, or channel changes.
+  loadcell_y.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
+  loadcell_y.setCalibrationFactor(g_y_calibration_factor);
+  g_y_zero_offset = loadcell_y.getZeroOffset();
 #if ENABLE_SERIAL_DEBUGGING
   Serial.print("Y zero offset: ");
-  Serial.println(loadcell_x.getZeroOffset());
+  Serial.println(loadcell_y.getZeroOffset());
   Serial.print("Y calibration factor: ");
-  Serial.println(loadcell_x.getCalibrationFactor());
+  Serial.println(loadcell_y.getCalibrationFactor());
+  Serial.println("-----------");
 #endif
 
-  loadcell_x.setChannel(g_next_channel_to_read); // To leave the selected channel in the correct state
+  //loadcell_x.setChannel(g_next_axis_to_read); // To leave the selected channel in the correct state
 
 #if ENABLE_SERIAL_DEBUGGING
   Serial.println("Tare complete");

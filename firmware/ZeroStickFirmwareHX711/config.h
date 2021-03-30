@@ -1,8 +1,8 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
-#define   ENABLE_SERIAL_DEBUGGING false
+#define   ENABLE_SERIAL_DEBUGGING true
 #define   ENABLE_DIGIPOT_OUTPUT   false
-#define   ENABLE_MOUSE_OUTPUT      true
+#define   ENABLE_MOUSE_OUTPUT     false
 #define   ENABLE_JOYSTICK_OUTPUT  false
 
 /* Input behaviour */
