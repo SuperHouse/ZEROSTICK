@@ -1842,7 +1842,7 @@ Standard 1x1 header</description>
 <plain>
 <frame x1="0" y1="0" x2="248.92" y2="185.42" columns="8" rows="5" layer="94"/>
 <text x="142.24" y="20.32" size="3.048" layer="94" font="vector">ZeroStick Load Cell Interface</text>
-<text x="172.72" y="14.478" size="1.778" layer="94">V1.0 (2020-12-08)</text>
+<text x="172.72" y="14.478" size="1.778" layer="94">V1.1 (2021-03-30)</text>
 <text x="142.24" y="14.478" size="1.778" layer="94">SKU: ZSLC</text>
 <text x="141.986" y="9.398" size="1.778" layer="94">(C)2020 SuperHouse Automation: www.superhouse.tv</text>
 <text x="141.986" y="6.35" size="1.778" layer="94">Licensed under the TAPR Open Hardware License: www.tapr.org/ohl</text>
@@ -1856,8 +1856,8 @@ Standard 1x1 header</description>
 <wire x1="73.66" y1="68.58" x2="73.66" y2="20.32" width="0.254" layer="97" style="longdash"/>
 <wire x1="73.66" y1="20.32" x2="22.86" y2="20.32" width="0.254" layer="97" style="longdash"/>
 <wire x1="22.86" y1="20.32" x2="22.86" y2="68.58" width="0.254" layer="97" style="longdash"/>
-<text x="172.72" y="160.02" size="2.54" layer="94">X Axis Load Cell Input</text>
-<text x="172.72" y="119.38" size="2.54" layer="94">Y Axis Load Cell Input</text>
+<text x="172.72" y="160.02" size="2.54" layer="94">Load Cell Input 1 (channel 0: Y)</text>
+<text x="172.72" y="119.38" size="2.54" layer="94">Load Cell Input 2 (channel 1: X)</text>
 <text x="22.86" y="160.02" size="2.54" layer="94">I2C Header / Pullups</text>
 <text x="223.52" y="139.7" size="1.778" layer="97">E+ Red</text>
 <text x="223.52" y="142.24" size="1.778" layer="97">E- Black</text>
