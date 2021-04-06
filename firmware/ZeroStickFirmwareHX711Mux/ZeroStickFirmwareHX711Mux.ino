@@ -12,8 +12,8 @@
 
    The term "position" is used through the code to signify the
    virtual position of the joystick, even though it doesn't physically
-   move. As more force is applied, the virtual position of the
-   joystick is considered to change.
+   move from the central position. As more force is applied, the
+   virtual position of the joystick is considered to change.
 
    Position is measured as % deflection from the zero (central)
    position, ie: from -100% to +100%. This is equivalent to full
@@ -32,7 +32,7 @@
    including mouse emulation and joystick emulation.
 
    Internal dependencies. Install using Arduino library manager:
-     "SparkFun Qwiic Scale NAU7802" by SparkFun Electronics
+     "HX711_ADC" by Olav Kallhovd
      "Arduino TinyUSB" by Adafruit
 
    External dependencies. Install manually:
@@ -42,9 +42,7 @@
      www.superhouse.tv/zerostick
 
    To do:
-    - Zero offsets are currently hard-coded. These should be set at startup
-      and when tare is run.
-    - Do we need setZeroOffset() after calculateZeroOffset() in setup?
+    -
 
    Leonardo pin assignments:
      A0:
@@ -69,10 +67,10 @@
      D13: LED_PIN
 
    XIAO pin assignments:
-     D0:
-     D1:
-     D2:
-     D3:
+     D0:  LOADCELL_X_DOUT_PIN
+     D1:  LOADCELL_X_SCK_PIN
+     D2:  LOADCELL_Y_DOUT_PIN
+     D3:  LOADCELL_Y_SCK_PIN
      D4:  SDA
      D5:  SCL
      D6:  Tare pin
@@ -87,34 +85,33 @@
     Chris Fryer <chris.fryer78@gmail.com>
     Jonathan Oxer <jon@oxer.com.au>
 
-   Copyright 2019-2021 SuperHouse Automation Pty Ltd www.superhouse.tv
+   Copyright 2019-2020 SuperHouse Automation Pty Ltd www.superhouse.tv
 */
-#define VERSION "2.4"
+#define VERSION "2.2"
 /*--------------------------- Configuration ---------------------------------*/
 // Configuration should be done in the included file:
 #include "config.h"
 
 /*--------------------------- Libraries -------------------------------------*/
-#include <Wire.h>
-#include "SparkFun_Qwiic_Scale_NAU7802_Arduino_Library.h" // Load cell amplifier
-#include <Adafruit_DS3502.h>        // Digital potentiometer
-#include <RunningMedian.h>          // By Rob Tillaart
+#include <HX711_ADC.h>              // Load cell amplifier
 
+#include <Adafruit_DS3502.h>        // Digital potentiometer
 #ifdef ARDUINO_SEEED_XIAO_M0
 #include "Adafruit_TinyUSB.h"       // HID emulation
-#endif
+//#include "TinyUSB_Mouse_and_Keyboard.h"       // HID emulation
 
+#endif
 #ifdef ARDUINO_AVR_LEONARDO
 #include "Mouse.h"                  // Mouse emulation
 #include <Joystick.h>               // Joystick emulation
 #endif
 
 /*--------------------------- Global Variables ------------------------------*/
-int16_t  g_zero_tare_offset_x    = -770;   // X axis tare correction
-int16_t  g_zero_tare_offset_y    = -320;   // Y axis tare correction
+int16_t  g_zero_tare_offset_x    = 0;   // X axis tare correction
+int16_t  g_zero_tare_offset_y    = 0;   // Y axis tare correction
 
-int32_t   g_input_x_position     = 0;   // Most recent force reading from X axis (+/- %)
-int32_t   g_input_y_position     = 0;   // Most recent force reading from Y axis (+/- %)
+int8_t   g_input_x_position      = 0;   // Most recent force reading from X axis (+/- %)
+int8_t   g_input_y_position      = 0;   // Most recent force reading from Y axis (+/- %)
 
 uint32_t g_last_mouse_time       = 0;   // When we last sent a mouse event
 uint32_t g_last_joystick_time    = 0;   // When we last sent a joystick event
@@ -123,13 +120,8 @@ uint32_t g_last_digipot_time     = 0;   // When we last updated the digipot outp
 uint8_t  g_left_button_state     = 0;
 uint8_t  g_right_button_state    = 0;
 
-//float    g_x_calibration_factor  = 0.0;
-//float    g_y_calibration_factor  = 0.0;
-int32_t  g_x_zero_offset         = 0;
-int32_t  g_y_zero_offset         = 0;
-uint8_t  g_next_channel_to_read  = 0;   // 0 = X axis, 1 = Y axis
-uint8_t  g_channel_read_count    = 0;   // Accumulate how many times channel has been read
-int32_t  g_sensor_raw_value_sum  = 0;   // Accumulate channel readings
+volatile boolean g_x_new_data_ready = 0; // Flag set in ISR when ADC says it has data
+volatile boolean g_y_new_data_ready = 0; // Flag set in ISR when ADC says it has data
 
 #ifdef ARDUINO_SEEED_XIAO_M0
 //  HID report descriptor using TinyUSB's template.
@@ -140,6 +132,19 @@ uint8_t const g_hid_descriptor_report[] =
 };
 #endif
 
+
+
+#define TCAADDR 0x70
+ 
+void tcaselect(uint8_t i) {
+  if (i > 7) return;
+ 
+  Wire.beginTransmission(TCAADDR);
+  Wire.write(1 << i);
+  Wire.endTransmission();  
+}
+
+
 /*--------------------------- Function Signatures ---------------------------*/
 /*
   void     readInputPosition();
@@ -148,10 +153,7 @@ uint8_t const g_hid_descriptor_report[] =
 
 /*--------------------------- Instantiate Global Objects --------------------*/
 // Load cells
-NAU7802 loadcells;
-
-RunningMedian x_samples = RunningMedian(5);
-RunningMedian y_samples = RunningMedian(5);
+HX711_ADC scale_input(LOADCELL_X_DOUT_PIN, LOADCELL_X_SCK_PIN);
 
 #ifdef ARDUINO_SEEED_XIAO_M0
 Adafruit_USBD_HID usb_hid;
@@ -172,17 +174,6 @@ Adafruit_DS3502 digipot_x = Adafruit_DS3502();
 Adafruit_DS3502 digipot_y = Adafruit_DS3502();
 #endif
 
-
-#define TCAADDR 0x70
-
-void tcaselect(uint8_t i) {
-  if (i > 7) return;
-
-  Wire.beginTransmission(TCAADDR);
-  Wire.write(1 << i);
-  Wire.endTransmission();
-}
-
 /*--------------------------- Program ---------------------------------------*/
 /**
   Setup
@@ -195,14 +186,6 @@ void setup()
   //}
   Serial.print("ZeroStick starting up, v");
   Serial.println(VERSION);
-
-  if (ARDUINO_SEEED_XIAO_M0)
-  {
-    Serial.println("Xiao");
-  }
-
-  Wire.begin();
-  //tcaselect(2);
 
   pinMode(DISABLE_PIN,            INPUT_PULLUP);
   pinMode(TARE_BUTTON_PIN,        INPUT_PULLUP);
@@ -241,18 +224,33 @@ void setup()
   digipot_y.setWiper(63);               // Start with pots in central position
 #endif
 
-  // Start the load cell interface
-  Serial.print("Starting load cell interface: ");
-  if (loadcells.begin() == false)
+  // Average across only 1 sample for minimum latency
+  scale_input.setSamplesInUse(SAMPLES_TO_AVERAGE);
+  scale_y.setSamplesInUse(SAMPLES_TO_AVERAGE);
+
+  // Start the load cells
+  scale_input.begin();
+  scale_y.begin();
+
+  // Run the tare operation once at startup
+  tareCellReading();
+
+  if (scale_input.getTareTimeoutFlag())
   {
-    Serial.println("Not detected. Halting.");
-    while (1);
+    Serial.println("Tare timeout on X, check HX711 wiring");
   }
-  Serial.println("ok.");
-  loadcells.setGain(NAU7802_GAIN_1);        // Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
-  loadcells.setSampleRate(NAU7802_SPS_320); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
-  delay(100);
-  tareCellReadings();
+  if (scale_y.getTareTimeoutFlag())
+  {
+    Serial.println("Tare timeout on Y, check HX711 wiring");
+  }
+
+  scale_input.setCalFactor(cal_value_x); // Calibration value
+  scale_y.setCalFactor(cal_value_y); // Calibration value
+
+  reportAdcSettings();
+
+  attachInterrupt(digitalPinToInterrupt(LOADCELL_X_DOUT_PIN), xDataReadyISR, FALLING);
+  attachInterrupt(digitalPinToInterrupt(LOADCELL_Y_DOUT_PIN), yDataReadyISR, FALLING);
 }
 
 /**
@@ -260,8 +258,8 @@ void setup()
 */
 void loop()
 {
-  //Serial.println(millis());
   checkTareButton();
+  checkTareStatus();
   checkMouseButtons();
 
   readInputPosition();
@@ -272,6 +270,48 @@ void loop()
 }
 
 /**
+  Report ADC performance values and settings
+*/
+void reportAdcSettings()
+{
+  Serial.print("X calibration value: ");
+  Serial.println(scale_input.getCalFactor());
+  Serial.print("X measured conversion time ms: ");
+  Serial.println(scale_input.getConversionTime());
+  Serial.print("X measured sampling rate HZ: ");
+  Serial.println(scale_input.getSPS());
+  Serial.print("X measured settlingtime ms: ");
+  Serial.println(scale_input.getSettlingTime());
+
+  Serial.print("Y calibration value: ");
+  Serial.println(scale_y.getCalFactor());
+  Serial.print("Y measured conversion time ms: ");
+  Serial.println(scale_y.getConversionTime());
+  Serial.print("Y measured sampling rate HZ: ");
+  Serial.println(scale_y.getSPS());
+  Serial.print("Y measured settlingtime ms: ");
+  Serial.println(scale_y.getSettlingTime());
+}
+
+/**
+  ISR for X axis load cell
+*/
+void xDataReadyISR() {
+  if (scale_input.update()) {
+    g_x_new_data_ready = 1;
+  }
+}
+
+/**
+  ISR for Y axis load cell
+*/
+void yDataReadyISR() {
+  if (scale_y.update()) {
+    g_y_new_data_ready = 1;
+  }
+}
+
+/**
   Check if the tare button is pressed
 */
 void checkTareButton()
@@ -279,12 +319,28 @@ void checkTareButton()
   if (LOW == digitalRead(TARE_BUTTON_PIN))
   {
     // Button is pressed, do the tare!
-    delay(100);
-    tareCellReadings();
+    delay(200);
+    tareCellReading();
     delay(100);
   }
 }
 
+/**
+  Check if last tare operation is complete
+*/
+void checkTareStatus()
+{
+  if (scale_input.getTareStatus() == true) {
+#if ENABLE_SERIAL_DEBUGGING
+    Serial.println("Tare load cell 1 complete");
+#endif
+  }
+  if (scale_y.getTareStatus() == true) {
+#if ENABLE_SERIAL_DEBUGGING
+    Serial.println("Tare load cell 2 complete");
+#endif
+  }
+}
 
 /**
   Send mouse movements to the computer
@@ -309,10 +365,9 @@ void updateMouseOutput()
       // Computer screens use the top left corner as the coordinate origin. This
       // means the Y axis is inverted: plus is down, minus is up. We have to
       // reverse the Y axis value to match it to mouse movement.
-      float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * 1;  // X axis is not reversed
-      float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position * -1;  // Y axis is reversed
+      float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * -1;  // X axis is reversed
+      float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position;
 
-      //Serial.println("Moving");
 #ifdef ARDUINO_SEEED_XIAO_M0
       if ( usb_hid.ready() )
       {
@@ -340,13 +395,7 @@ void checkMouseButtons()
   {
     if (HIGH == g_left_button_state)
     {
-#ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 1);
-      Serial.println("press");
-#endif
-#ifdef ARDUINO_AVR_LEONARDO
-      Mouse.press(MOUSE_LEFT);
-#endif
       Serial.println("down");
       g_left_button_state = LOW;
     }
@@ -355,12 +404,7 @@ void checkMouseButtons()
   {
     if (LOW == g_left_button_state)
     {
-#ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonRelease(0);
-#endif
-#ifdef ARDUINO_AVR_LEONARDO
-      Mouse.release(MOUSE_LEFT);
-#endif
       Serial.println("up");
       g_left_button_state = HIGH;
     }
@@ -371,12 +415,7 @@ void checkMouseButtons()
   {
     if (HIGH == g_right_button_state)
     {
-#ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 2);
-#endif
-#ifdef ARDUINO_AVR_LEONARDO
-      Mouse.press(MOUSE_RIGHT);
-#endif
       Serial.println("down");
       g_right_button_state = LOW;
     }
@@ -385,12 +424,7 @@ void checkMouseButtons()
   {
     if (LOW == g_right_button_state)
     {
-#ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonRelease(0);
-#endif
-#ifdef ARDUINO_AVR_LEONARDO
-      Mouse.release(MOUSE_RIGHT);
-#endif
       Serial.println("up");
       g_right_button_state = HIGH;
     }
@@ -407,8 +441,8 @@ void updateJoystickOutput()
   {
     if (millis() > g_last_joystick_time + JOYSTICK_INTERVAL)
     {
-      Joystick.setYAxis((int)g_input_y_position);
-      Joystick.setXAxis((int)g_input_x_position * -1);  // X axis is reversed
+      Joystick.setYAxis((int)scale_y_value);
+      Joystick.setXAxis((int)scale_input_value * -1);  // X axis is reversed
 
       g_last_joystick_time = millis();
     }
@@ -426,8 +460,8 @@ void updateDigipotOutputs()
   {
     if (millis() > g_last_digipot_time + DIGIPOT_INTERVAL)
     {
-      int8_t pot_position_x = 63 + (int)(g_input_x_position); //(g_pressure_level_x);
-      int8_t pot_position_y = 63 + (int)(g_input_y_position); //(g_pressure_level_y);
+      int8_t pot_position_x = 63 + (int)(g_pressure_level_x);
+      int8_t pot_position_y = 63 + (int)(g_pressure_level_y);
       digipot_x.setWiper(pot_position_x);
       digipot_y.setWiper(pot_position_y);
 
@@ -446,97 +480,58 @@ void updateDigipotOutputs()
 */
 void readInputPosition()
 {
-  //Serial.println("Reading");
-
-  if (loadcells.available() == true)
+  if (g_x_new_data_ready)
   {
-    if (1 == g_next_channel_to_read) // X axis
+    float g_sensor_x_raw_value = scale_input.getData();
+    g_input_x_position = (int)map(g_sensor_x_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
+    g_input_x_position = constrain(g_input_x_position, -100, 100);           // Prevent going out of bounds
+
+    if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
     {
-      int32_t latest_reading = loadcells.getReading();
-      x_samples.add(latest_reading + g_zero_tare_offset_x);
-      g_channel_read_count++;
-
-      g_input_x_position = x_samples.getMedian();
-      g_input_x_position = map(g_input_x_position, -2800, 2800, -100, 100); // Adjust to a percentage of full force
-      g_input_x_position = constrain(g_input_x_position, -100, 100);          // Prevent going out of bounds
-
-      if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
-      {
-        g_input_x_position -= INPUT_DEAD_SPOT_SIZE;
-      } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
-        g_input_x_position += INPUT_DEAD_SPOT_SIZE;
-      } else {
-        g_input_x_position = 0;
-      }
-
-      g_next_channel_to_read = 0;
-      loadcells.setChannel(0);
-      loadcells.calibrateAFE();
-
-    } else {                         // Y axis
-      int32_t latest_reading = loadcells.getReading();
-      y_samples.add(latest_reading + g_zero_tare_offset_y);
-      g_channel_read_count++;
-
-      g_input_y_position = y_samples.getMedian();
-      g_input_y_position = map(g_input_y_position, -2800, 2800, -100, 100); // Adjust to a percentage of full force
-      g_input_y_position = constrain(g_input_y_position, -100, 100);          // Prevent going out of bounds
-
-      if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
-      {
-        g_input_y_position -= INPUT_DEAD_SPOT_SIZE;
-      } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
-        g_input_y_position += INPUT_DEAD_SPOT_SIZE;
-      } else {
-        g_input_y_position = 0;
-      }
-
-      g_channel_read_count   = 0;
-      g_next_channel_to_read = 1;
-      loadcells.setChannel(1);
-      loadcells.calibrateAFE();
+      g_input_x_position -= INPUT_DEAD_SPOT_SIZE;
+    } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_x_position) {
+      g_input_x_position += INPUT_DEAD_SPOT_SIZE;
+    } else {
+      g_input_x_position = 0;
     }
-
-#if ENABLE_SERIAL_DEBUGGING2
-    Serial.print(g_input_x_position);
-    Serial.print("  ");
-    Serial.println(g_input_y_position);
-#endif
-
+    g_x_new_data_ready = 0;
   }
+
+  if (g_y_new_data_ready)
+  {
+    float g_sensor_y_raw_value = scale_y.getData();
+    g_input_y_position = (int)map(g_sensor_y_raw_value, -30, 30, -100, 100); // Adjust to a percentage of full force
+    g_input_y_position = constrain(g_input_y_position, -100, 100);           // Prevent going out of bounds
+    if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
+    {
+      g_input_y_position -= INPUT_DEAD_SPOT_SIZE;
+    } else if (-1 * INPUT_DEAD_SPOT_SIZE > g_input_y_position) {
+      g_input_y_position += INPUT_DEAD_SPOT_SIZE;
+    } else {
+      g_input_y_position = 0;
+    }
+    g_y_new_data_ready = 0;
+  }
+
+#if ENABLE_SERIAL_DEBUGGING
+  Serial.print(g_input_x_position);
+  Serial.print("  ");
+  Serial.println(g_input_y_position);
+#endif
 }
 
 /**
-  Reset the zero position of the load cells. Select each channel in turn and tare them.
+  Reset the zero position of the load cell
 */
-void tareCellReadings()
+void tareCellReading()
 {
-  loadcells.setChannel(0);
-  loadcells.calibrateAFE();                 // Internal calibration. Recommended after power up, gain changes, sample rate changes, or channel changes.
-  loadcells.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
-  //loadcells.setCalibrationFactor(g_x_calibration_factor);
-  g_x_zero_offset = loadcells.getZeroOffset();
-#if ENABLE_SERIAL_DEBUGGING
-  Serial.print("X zero offset: ");
-  Serial.println(loadcells.getZeroOffset());
-  Serial.print("X calibration factor: ");
-  Serial.println(loadcells.getCalibrationFactor());
-#endif
-
-  loadcells.setChannel(1);
-  loadcells.calibrateAFE();                 // Internal calibration. Recommended after power up, gain changes, sample rate changes, or channel changes.
-  loadcells.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
-  //loadcells.setCalibrationFactor(g_y_calibration_factor);
-  g_y_zero_offset = loadcells.getZeroOffset();
-#if ENABLE_SERIAL_DEBUGGING
-  Serial.print("Y zero offset: ");
-  Serial.println(loadcells.getZeroOffset());
-  Serial.print("Y calibration factor: ");
-  Serial.println(loadcells.getCalibrationFactor());
-#endif
-
-  loadcells.setChannel(g_next_channel_to_read); // To leave the selected channel in the correct state
-
+  // Read the load cells to set the zero offset
+  uint8_t loadcell_rdy = 0;
+  while (loadcell_rdy < 1)
+  { // Run startup, stabilization, and tare, both modules simultaneously
+    if (!loadcell_rdy) loadcell_rdy = scale_input.startMultiple(SCALE_TARE_TIME);
+  }
+  scale_input.tareNoDelay();
 #if ENABLE_SERIAL_DEBUGGING
   Serial.println("Tare complete");
 #endif
