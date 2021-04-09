@@ -1,7 +1,7 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
 #define   ENABLE_SERIAL_DEBUGGING  false
-#define   ENABLE_SERIAL_DEBUGGING2  true
+#define   ENABLE_SERIAL_DEBUGGING2  false
 #define   ENABLE_DIGIPOT_OUTPUT   false
 #define   ENABLE_MOUSE_OUTPUT      true
 #define   ENABLE_JOYSTICK_OUTPUT  false
@@ -41,7 +41,7 @@
 #define   TARE_BUTTON_PIN             6  // Pull this pin to GND to tare
 #define   DISABLE_PIN                 7  // Pull this pin to GND to disable
 #define   MOUSE_LEFT_BUTTON_PIN       8  // Pull this pin to GND for left click
-#define   MOUSE_RIGHT_BUTTON_PIN      2  // Pull this pin to GND for right click
+#define   MOUSE_RIGHT_BUTTON_PIN      9  // Pull this pin to GND for right click
 #endif
 /**** End of XIAO pins ****/
 

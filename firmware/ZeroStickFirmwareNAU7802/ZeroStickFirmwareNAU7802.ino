@@ -342,12 +342,12 @@ void checkMouseButtons()
     {
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 1);
-      Serial.println("press");
+      Serial.println("Xiao left click");
 #endif
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.press(MOUSE_LEFT);
+      Serial.println("Leonardo left click");
 #endif
-      Serial.println("down");
       g_left_button_state = LOW;
     }
   }
@@ -361,7 +361,7 @@ void checkMouseButtons()
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.release(MOUSE_LEFT);
 #endif
-      Serial.println("up");
+      Serial.println("release");
       g_left_button_state = HIGH;
     }
   }
@@ -373,11 +373,12 @@ void checkMouseButtons()
     {
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 2);
+      Serial.println("Xiao right click");
 #endif
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.press(MOUSE_RIGHT);
+      Serial.println("Leonardo right click");
 #endif
-      Serial.println("down");
       g_right_button_state = LOW;
     }
   }
@@ -391,7 +392,7 @@ void checkMouseButtons()
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.release(MOUSE_RIGHT);
 #endif
-      Serial.println("up");
+      Serial.println("release");
       g_right_button_state = HIGH;
     }
   }
