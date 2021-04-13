@@ -1,10 +1,13 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
-#define   ENABLE_SERIAL_DEBUGGING   false
-#define   ENABLE_SERIAL_DEBUGGING2  false
 #define   ENABLE_DIGIPOT_OUTPUT     true
 #define   ENABLE_MOUSE_OUTPUT       false
 #define   ENABLE_JOYSTICK_OUTPUT    false
+
+/* Debugging options */
+#define   ENABLE_INPUT_DEBUGGING    false
+#define   ENABLE_MOUSE_DEBUGGING    false
+#define   ENABLE_DIGIPOT_DEBUGGING  false
 
 /* Input behaviour */
 #define   INPUT_DEAD_SPOT_SIZE        2  // +/- this % will be ignored
@@ -19,7 +22,10 @@
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
 
 /* Serial */
-#define     SERIAL_BAUD_RATE     115200  // Speed for USB serial console
+#define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console
+
+/* Digital potentiometer output behaviour */
+#define   DIGIPOT_INTERVAL           20  // ms between potentiometer position updates
 
 /* ----------------- Hardware-specific config ---------------------- */
 /*
@@ -56,7 +62,7 @@
 /**** End of Leonardo pins ****/
 
 /* I2C addresses */
-#define   DIGIPOT_X_I2C_ADDR       0x28
-#define   DIGIPOT_Y_I2C_ADDR       0x29
+#define   DIGIPOT_X_I2C_ADDR       0x29
+#define   DIGIPOT_Y_I2C_ADDR       0x28
 
 #define   LOADCELL_I2C_ADDR        0x2A  // Currently ignoring this!

@@ -248,7 +248,6 @@ void setup()
 */
 void loop()
 {
-  //Serial.println(millis());
   checkTareButton();
   checkMouseButtons();
 
@@ -260,7 +259,7 @@ void loop()
 }
 
 /**
-  Check if the tare button is pressed
+  Check if the tare button is pressed.
 */
 void checkTareButton()
 {
@@ -273,9 +272,8 @@ void checkTareButton()
   }
 }
 
-
 /**
-  Send mouse movements to the computer
+  Send mouse movements to the computer.
 */
 void updateMouseOutput()
 {
@@ -299,8 +297,11 @@ void updateMouseOutput()
       // reverse the Y axis value to match it to mouse movement.
       float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * 1;  // X axis is not reversed
       float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position * -1;  // Y axis is reversed
+      
+#ifdef ENABLE_MOUSE_DEBUGGING
+      Serial.println("Moving");
+#endif
 
-      //Serial.println("Moving");
 #ifdef ARDUINO_SEEED_XIAO_M0
       if ( usb_hid.ready() )
       {
@@ -319,7 +320,8 @@ void updateMouseOutput()
 }
 
 /**
-
+  Check whether mouse buttons have been pressed or released, and
+  send appropriate mouse events.
 */
 void checkMouseButtons()
 {
@@ -406,7 +408,14 @@ void updateJoystickOutput()
 }
 
 /**
-  Send mouse movements to the wheelchair
+  Send joystick movements to a pair of digital potentiometers using
+  I2C. These can be connected to the joystick input of an electric
+  wheelchair to simulate the normal joystick.
+
+  Input (zerostick) position is centered at 0, with deflection to
+  +/-100 full scale. This range of -100 to +100 must to mapped to the
+  required range for the digital potentiometers, which is 0 to 127
+  with the center point at 63.
 */
 void updateDigipotOutputs()
 {
@@ -415,16 +424,30 @@ void updateDigipotOutputs()
   {
     if (millis() > g_last_digipot_time + DIGIPOT_INTERVAL)
     {
-      int8_t pot_position_x = 63 + (int)(g_input_x_position); //(g_pressure_level_x);
-      int8_t pot_position_y = 63 + (int)(g_input_y_position); //(g_pressure_level_y);
+      /* Scale the -100 to +100 input to suit the required 0 to 127 output range */
+      int8_t pot_position_x = 63 + (int)(g_input_x_position * 63 / 100);
+      int8_t pot_position_y = 63 + (int)(g_input_y_position * 63 / 100);
+
+      /* Apply constraints as a safety measure to prevent wraparound */
+      pot_position_x = constrain(pot_position_x, 0, 127);
+      pot_position_y = constrain(pot_position_y, 0, 127);
+
+      /* Update the positions of the digital potentiometers */
       digipot_x.setWiper(pot_position_x);
       digipot_y.setWiper(pot_position_y);
 
+      g_last_digipot_time = millis();
+
+#if ENABLE_DIGIPOT_DEBUGGING
+      Serial.print(g_input_x_position);
+      Serial.print("   ");
+      Serial.print(g_input_y_position);
+      Serial.print("   ");
       Serial.print("X: ");
       Serial.print(pot_position_x);
-      Serial.print("    Y: ");
+      Serial.print("   Y: ");
       Serial.println(pot_position_y);
-      g_last_digipot_time = millis();
+#endif
     }
   }
 #endif
@@ -486,7 +509,7 @@ void readInputPosition()
       loadcells.calibrateAFE();
     }
 
-#if ENABLE_SERIAL_DEBUGGING2
+#if ENABLE_INPUT_DEBUGGING
     Serial.print(g_input_x_position);
     Serial.print("  ");
     Serial.println(g_input_y_position);
@@ -504,7 +527,7 @@ void tareCellReadings()
   loadcells.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
   //loadcells.setCalibrationFactor(g_x_calibration_factor);
   g_x_zero_offset = loadcells.getZeroOffset();
-#if ENABLE_SERIAL_DEBUGGING
+#if ENABLE_INPUT_DEBUGGING
   Serial.print("X zero offset: ");
   Serial.println(loadcells.getZeroOffset());
   Serial.print("X calibration factor: ");
@@ -516,7 +539,7 @@ void tareCellReadings()
   loadcells.calculateZeroOffset(64);        // Tare operation, averaged across 64 readings
   //loadcells.setCalibrationFactor(g_y_calibration_factor);
   g_y_zero_offset = loadcells.getZeroOffset();
-#if ENABLE_SERIAL_DEBUGGING
+#if ENABLE_INPUT_DEBUGGING
   Serial.print("Y zero offset: ");
   Serial.println(loadcells.getZeroOffset());
   Serial.print("Y calibration factor: ");
@@ -525,7 +548,7 @@ void tareCellReadings()
 
   loadcells.setChannel(g_next_channel_to_read); // To leave the selected channel in the correct state
 
-#if ENABLE_SERIAL_DEBUGGING
+#if ENABLE_INPUT_DEBUGGING
   Serial.println("Tare complete");
 #endif
 }
