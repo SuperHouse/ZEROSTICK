@@ -429,7 +429,6 @@ void updateDigipotOutputs()
       /* Apply constraints as a safety measure to prevent wraparound */
       pot_position_x = constrain(pot_position_x, 0, 127);
       pot_position_y = constrain(pot_position_y, 0, 127);
-      Serial.println(pot_position_x);
 
       /* Update the positions of the digital potentiometers */
       digipot_x.setWiper(pot_position_x);
