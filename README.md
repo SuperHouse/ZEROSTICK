@@ -45,6 +45,21 @@ Firmware
 The "Firmware" directory contains example firmware as an Arduino
 project.
 
+The example firmware has three output methods:
+
+1. Mouse output. When enabled and plugged into a computer, the ZeroStick
+will emulate a USB mouse. Buttons on the ZeroStick can also send left
+and right click events.
+
+2. Joystick output. When enabled and plugged into a computer, the
+ZeroStick will emulate a USB game controller with a joystick.
+
+3. I2C digital potentiometer output. External I2C digital potentiometers
+can be connected, which can then emulate a simple analog joystick
+when connected to another device such as a wheelchair. This allows the
+ZeroStick to control wheelchairs that expect to have a normal joystick
+attached.
+
 
 Credits
 -------
