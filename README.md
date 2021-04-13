@@ -69,7 +69,7 @@ Credits
 
 License
 -------
-Copyright 2019-2020 SuperHouse Automation Pty Ltd  www.superhouse.tv  
+Copyright 2019-2021 SuperHouse Automation Pty Ltd  www.superhouse.tv  
 
 The hardware portion of this project is licensed under the TAPR Open
 Hardware License (www.tapr.org/OHL). The "license" folder within this

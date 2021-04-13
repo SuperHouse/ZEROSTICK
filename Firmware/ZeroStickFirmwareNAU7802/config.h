@@ -1,7 +1,7 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
 #define   ENABLE_DIGIPOT_OUTPUT     true
-#define   ENABLE_MOUSE_OUTPUT       false
+#define   ENABLE_MOUSE_OUTPUT       true
 #define   ENABLE_JOYSTICK_OUTPUT    false
 
 /* Debugging options */
@@ -10,7 +10,8 @@
 #define   ENABLE_DIGIPOT_DEBUGGING  false
 
 /* Input behaviour */
-#define   INPUT_DEAD_SPOT_SIZE        2  // +/- this % will be ignored
+#define   INPUT_FULL_SCALE_GRAMS    150  // Force required to achieve 100% full scale
+#define   INPUT_DEAD_SPOT_SIZE        4  // +/- this % will be ignored
 
 /* Mouse behaviour */
 // 0.1 is super slow. 1.0 is really fast. 0.5 is generally ok.
@@ -20,6 +21,9 @@
 
 /* Joystick behaviour */
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
+
+/* Digipot behaviour */
+#define   DIGIPOT_SPEED               2
 
 /* Serial */
 #define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console
@@ -60,6 +64,10 @@
 #define   MOUSE_RIGHT_BUTTON_PIN     11
 #endif
 /**** End of Leonardo pins ****/
+
+/* Load cell inputs */
+#define   LOAD_CELL_RATING_GRAMS    300  // Force required to achieve 100% full scale
+#define   LOAD_CELL_FULL_SCALE     4200
 
 /* I2C addresses */
 #define   DIGIPOT_X_I2C_ADDR       0x29

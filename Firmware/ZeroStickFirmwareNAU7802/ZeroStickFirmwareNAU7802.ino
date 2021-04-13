@@ -113,8 +113,8 @@
 int16_t  g_zero_tare_offset_x    = -770;   // X axis tare correction
 int16_t  g_zero_tare_offset_y    = -320;   // Y axis tare correction
 
-int32_t   g_input_x_position     = 0;   // Most recent force reading from X axis (+/- %)
-int32_t   g_input_y_position     = 0;   // Most recent force reading from Y axis (+/- %)
+int32_t  g_input_x_position      = 0;   // Most recent force reading from X axis (+/- %)
+int32_t  g_input_y_position      = 0;   // Most recent force reading from Y axis (+/- %)
 
 uint32_t g_last_mouse_time       = 0;   // When we last sent a mouse event
 uint32_t g_last_joystick_time    = 0;   // When we last sent a joystick event
@@ -123,8 +123,6 @@ uint32_t g_last_digipot_time     = 0;   // When we last updated the digipot outp
 uint8_t  g_left_button_state     = 0;
 uint8_t  g_right_button_state    = 0;
 
-//float    g_x_calibration_factor  = 0.0;
-//float    g_y_calibration_factor  = 0.0;
 int32_t  g_x_zero_offset         = 0;
 int32_t  g_y_zero_offset         = 0;
 uint8_t  g_next_channel_to_read  = 0;   // 0 = X axis, 1 = Y axis
@@ -298,7 +296,7 @@ void updateMouseOutput()
       float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * 1;  // X axis is not reversed
       float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position * -1;  // Y axis is reversed
       
-#ifdef ENABLE_MOUSE_DEBUGGING
+#if ENABLE_MOUSE_DEBUGGING
       Serial.println("Moving");
 #endif
 
@@ -425,12 +423,13 @@ void updateDigipotOutputs()
     if (millis() > g_last_digipot_time + DIGIPOT_INTERVAL)
     {
       /* Scale the -100 to +100 input to suit the required 0 to 127 output range */
-      int8_t pot_position_x = 63 + (int)(g_input_x_position * 63 / 100);
-      int8_t pot_position_y = 63 + (int)(g_input_y_position * 63 / 100);
+      int16_t pot_position_x = 63 + (int)(g_input_x_position * DIGIPOT_SPEED * 63 / 100);
+      int16_t pot_position_y = 63 + (int)(g_input_y_position * DIGIPOT_SPEED * 63 / 100);
 
       /* Apply constraints as a safety measure to prevent wraparound */
       pot_position_x = constrain(pot_position_x, 0, 127);
       pot_position_y = constrain(pot_position_y, 0, 127);
+      Serial.println(pot_position_x);
 
       /* Update the positions of the digital potentiometers */
       digipot_x.setWiper(pot_position_x);
@@ -469,7 +468,10 @@ void readInputPosition()
       g_channel_read_count++;
 
       g_input_x_position = x_samples.getMedian();
-      g_input_x_position = map(g_input_x_position, -2800, 2800, -100, 100); // Adjust to a percentage of full force
+      // LOAD_CELL_RATING_GRAMS is the spec on the load cell.
+      // INPUT_FULL_SCALE_GRAMS is effort required to reach full scale.
+      g_input_x_position = g_input_x_position * LOAD_CELL_RATING_GRAMS / INPUT_FULL_SCALE_GRAMS;
+      g_input_x_position = map(g_input_x_position, -LOAD_CELL_FULL_SCALE, LOAD_CELL_FULL_SCALE, -100, 100); // Adjust to a percentage of full force
       g_input_x_position = constrain(g_input_x_position, -100, 100);          // Prevent going out of bounds
 
       if (INPUT_DEAD_SPOT_SIZE < g_input_x_position)
@@ -491,7 +493,8 @@ void readInputPosition()
       g_channel_read_count++;
 
       g_input_y_position = y_samples.getMedian();
-      g_input_y_position = map(g_input_y_position, -2800, 2800, -100, 100); // Adjust to a percentage of full force
+      g_input_y_position = g_input_y_position * LOAD_CELL_RATING_GRAMS / INPUT_FULL_SCALE_GRAMS;
+      g_input_y_position = map(g_input_y_position, -LOAD_CELL_FULL_SCALE, LOAD_CELL_FULL_SCALE, -100, 100); // Adjust to a percentage of full force
       g_input_y_position = constrain(g_input_y_position, -100, 100);          // Prevent going out of bounds
 
       if (INPUT_DEAD_SPOT_SIZE < g_input_y_position)
