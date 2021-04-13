@@ -172,17 +172,6 @@ Adafruit_DS3502 digipot_x = Adafruit_DS3502();
 Adafruit_DS3502 digipot_y = Adafruit_DS3502();
 #endif
 
-
-#define TCAADDR 0x70
-
-void tcaselect(uint8_t i) {
-  if (i > 7) return;
-
-  Wire.beginTransmission(TCAADDR);
-  Wire.write(1 << i);
-  Wire.endTransmission();
-}
-
 /*--------------------------- Program ---------------------------------------*/
 /**
   Setup
@@ -202,7 +191,6 @@ void setup()
   }
 
   Wire.begin();
-  //tcaselect(2);
 
   pinMode(DISABLE_PIN,            INPUT_PULLUP);
   pinMode(TARE_BUTTON_PIN,        INPUT_PULLUP);
@@ -503,7 +491,6 @@ void readInputPosition()
     Serial.print("  ");
     Serial.println(g_input_y_position);
 #endif
-
   }
 }
 

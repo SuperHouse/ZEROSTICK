@@ -1,10 +1,10 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
-#define   ENABLE_SERIAL_DEBUGGING  false
+#define   ENABLE_SERIAL_DEBUGGING   false
 #define   ENABLE_SERIAL_DEBUGGING2  false
-#define   ENABLE_DIGIPOT_OUTPUT   false
-#define   ENABLE_MOUSE_OUTPUT      true
-#define   ENABLE_JOYSTICK_OUTPUT  false
+#define   ENABLE_DIGIPOT_OUTPUT     true
+#define   ENABLE_MOUSE_OUTPUT       false
+#define   ENABLE_JOYSTICK_OUTPUT    false
 
 /* Input behaviour */
 #define   INPUT_DEAD_SPOT_SIZE        2  // +/- this % will be ignored
