@@ -23,7 +23,7 @@
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
 
 /* Digipot behaviour */
-#define   DIGIPOT_SPEED               2
+#define   DIGIPOT_SPEED               1  // Multiply joystick position to increase sensitivity
 
 /* Serial */
 #define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console

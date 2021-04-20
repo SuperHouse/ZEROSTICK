@@ -223,8 +223,8 @@ void setup()
   }
   Serial.println("Found Y-axis DS3502 chip");
 
-  digipot_x.setWiper(63);               // Start with pots in central position
-  digipot_y.setWiper(63);               // Start with pots in central position
+  digipot_x.setWiper(65);               // Start with pots in central position
+  digipot_y.setWiper(65);               // Start with pots in central position
 #endif
 
   // Start the load cell interface
@@ -423,12 +423,13 @@ void updateDigipotOutputs()
     if (millis() > g_last_digipot_time + DIGIPOT_INTERVAL)
     {
       /* Scale the -100 to +100 input to suit the required 0 to 127 output range */
-      int16_t pot_position_x = 63 + (int)(g_input_x_position * DIGIPOT_SPEED * 63 / 100);
-      int16_t pot_position_y = 63 + (int)(g_input_y_position * DIGIPOT_SPEED * 63 / 100);
+      // X and Y are inverted for driving the pots
+      int16_t pot_position_x = 65 - (int)(g_input_x_position * DIGIPOT_SPEED * 63 / 100);
+      int16_t pot_position_y = 65 - (int)(g_input_y_position * DIGIPOT_SPEED * 63 / 100);
 
-      /* Apply constraints as a safety measure to prevent wraparound */
-      pot_position_x = constrain(pot_position_x, 0, 127);
-      pot_position_y = constrain(pot_position_y, 0, 127);
+      /* Apply constraints to prevent going out of range on Permobil wheelchair joystick input */
+      pot_position_x = constrain(pot_position_x, 50, 80);
+      pot_position_y = constrain(pot_position_y, 50, 80);
 
       /* Update the positions of the digital potentiometers */
       digipot_x.setWiper(pot_position_x);
