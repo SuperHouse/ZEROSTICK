@@ -3,9 +3,9 @@
 #define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console
 
 /* Output options */
-#define   ENABLE_DIGIPOT_OUTPUT     true
+#define   ENABLE_DIGIPOT_OUTPUT     false
 #define   ENABLE_MOUSE_OUTPUT       false
-#define   ENABLE_JOYSTICK_OUTPUT    false
+#define   ENABLE_JOYSTICK_OUTPUT    true
 
 /* Debugging options */
 #define   ENABLE_DIGIPOT_DEBUGGING  false
@@ -25,7 +25,7 @@
 
 /* Joystick behaviour */
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
-#define   JOYSTICK_AXIS_RANGE      1023
+#define   JOYSTICK_AXIS_RANGE       100  // Input is scaled to +/-100%
 
 /* Digipot behaviour */
 #define   DIGIPOT_SPEED               1  // Multiply joystick position to increase sensitivity

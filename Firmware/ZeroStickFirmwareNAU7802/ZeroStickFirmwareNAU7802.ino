@@ -433,8 +433,8 @@ void updateJoystickOutput()
       Serial.print("  ");
       Serial.println(g_input_y_position);
 #endif
-      Joystick.setYAxis((int)g_input_y_position);
-      Joystick.setXAxis((int)g_input_x_position * -1);  // X axis is reversed
+      Joystick.setYAxis((int)g_input_y_position * -1);  // Y axis is reversed
+      Joystick.setXAxis((int)g_input_x_position);
 
       g_last_joystick_time = millis();
     }
