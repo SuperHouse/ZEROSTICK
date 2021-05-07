@@ -1,7 +1,7 @@
 /* ----------------- General config -------------------------------- */
 /* Output options */
 #define   ENABLE_DIGIPOT_OUTPUT     true
-#define   ENABLE_MOUSE_OUTPUT       true
+#define   ENABLE_MOUSE_OUTPUT       false
 #define   ENABLE_JOYSTICK_OUTPUT    false
 
 /* Debugging options */
@@ -11,7 +11,7 @@
 
 /* Input behaviour */
 #define   INPUT_FULL_SCALE_GRAMS    150  // Force required to achieve 100% full scale
-#define   INPUT_DEAD_SPOT_SIZE        4  // +/- this % will be ignored
+#define   INPUT_DEAD_SPOT_SIZE        6  // +/- this % will be ignored
 
 /* Mouse behaviour */
 // 0.1 is super slow. 1.0 is really fast. 0.5 is generally ok.
@@ -30,6 +30,7 @@
 
 /* Digital potentiometer output behaviour */
 #define   DIGIPOT_INTERVAL           20  // ms between potentiometer position updates
+#define   DIGIPOT_CENTER             65
 
 /* ----------------- Hardware-specific config ---------------------- */
 /*

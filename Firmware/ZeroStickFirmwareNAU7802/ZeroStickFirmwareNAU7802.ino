@@ -223,18 +223,24 @@ void setup()
   }
   Serial.println("Found Y-axis DS3502 chip");
 
-  digipot_x.setWiper(65);               // Start with pots in central position
-  digipot_y.setWiper(65);               // Start with pots in central position
+  digipot_x.setWiper(DIGIPOT_CENTER);               // Start with pots in central position
+  digipot_y.setWiper(DIGIPOT_CENTER);               // Start with pots in central position
 #endif
 
   // Start the load cell interface
+#if ENABLE_INPUT_DEBUGGING
   Serial.print("Starting load cell interface: ");
+#endif
   if (loadcells.begin() == false)
   {
+#if ENABLE_INPUT_DEBUGGING
     Serial.println("Not detected. Halting.");
+#endif
     while (1);
   }
+#if ENABLE_INPUT_DEBUGGING
   Serial.println("ok.");
+#endif
   loadcells.setGain(NAU7802_GAIN_1);        // Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
   loadcells.setSampleRate(NAU7802_SPS_320); // Sample rate can be set to 10, 20, 40, 80, or 320Hz
   delay(100);
@@ -295,7 +301,7 @@ void updateMouseOutput()
       // reverse the Y axis value to match it to mouse movement.
       float mouse_x_movement = MOUSE_X_SPEED * g_input_x_position * 1;  // X axis is not reversed
       float mouse_y_movement = MOUSE_Y_SPEED * g_input_y_position * -1;  // Y axis is reversed
-      
+
 #if ENABLE_MOUSE_DEBUGGING
       Serial.println("Moving");
 #endif
@@ -424,8 +430,8 @@ void updateDigipotOutputs()
     {
       /* Scale the -100 to +100 input to suit the required 0 to 127 output range */
       // X and Y are inverted for driving the pots
-      int16_t pot_position_x = 65 - (int)(g_input_x_position * DIGIPOT_SPEED * 63 / 100);
-      int16_t pot_position_y = 65 - (int)(g_input_y_position * DIGIPOT_SPEED * 63 / 100);
+      int16_t pot_position_x = DIGIPOT_CENTER - (int)(g_input_x_position * DIGIPOT_SPEED * 63 / 100);
+      int16_t pot_position_y = DIGIPOT_CENTER - (int)(g_input_y_position * DIGIPOT_SPEED * 63 / 100);
 
       /* Apply constraints to prevent going out of range on Permobil wheelchair joystick input */
       pot_position_x = constrain(pot_position_x, 50, 80);
