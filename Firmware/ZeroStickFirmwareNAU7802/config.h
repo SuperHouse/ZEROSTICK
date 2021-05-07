@@ -1,13 +1,17 @@
 /* ----------------- General config -------------------------------- */
+/* Serial */
+#define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console
+
 /* Output options */
 #define   ENABLE_DIGIPOT_OUTPUT     true
 #define   ENABLE_MOUSE_OUTPUT       false
 #define   ENABLE_JOYSTICK_OUTPUT    false
 
 /* Debugging options */
-#define   ENABLE_INPUT_DEBUGGING    false
-#define   ENABLE_MOUSE_DEBUGGING    false
 #define   ENABLE_DIGIPOT_DEBUGGING  false
+#define   ENABLE_MOUSE_DEBUGGING    false
+#define   ENABLE_JOYSTICK_DEBUGGING false
+#define   ENABLE_INPUT_DEBUGGING    false
 
 /* Input behaviour */
 #define   INPUT_FULL_SCALE_GRAMS    150  // Force required to achieve 100% full scale
@@ -21,16 +25,13 @@
 
 /* Joystick behaviour */
 #define   JOYSTICK_INTERVAL          10  // ms between joystick position updates
+#define   JOYSTICK_AXIS_RANGE      1023
 
 /* Digipot behaviour */
 #define   DIGIPOT_SPEED               1  // Multiply joystick position to increase sensitivity
-
-/* Serial */
-#define   SERIAL_BAUD_RATE       115200  // Speed for USB serial console
-
-/* Digital potentiometer output behaviour */
 #define   DIGIPOT_INTERVAL           20  // ms between potentiometer position updates
 #define   DIGIPOT_CENTER             65
+
 
 /* ----------------- Hardware-specific config ---------------------- */
 /*
@@ -73,5 +74,4 @@
 /* I2C addresses */
 #define   DIGIPOT_X_I2C_ADDR       0x29
 #define   DIGIPOT_Y_I2C_ADDR       0x28
-
-#define   LOADCELL_I2C_ADDR        0x2A  // Currently ignoring this!
+#define   LOADCELL_I2C_ADDR        0x2A  // Fixed address, not referenced elsewhere

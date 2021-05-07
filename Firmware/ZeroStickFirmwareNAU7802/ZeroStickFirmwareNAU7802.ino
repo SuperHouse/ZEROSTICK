@@ -38,10 +38,24 @@
    External dependencies. Install manually:
      "Arduino Joystick Library" by Matthew Heironimus https://github.com/MHeironimus/ArduinoJoystickLibrary
 
-   More information:
+   NOTE: The official Joystick library doesn't support SAMD, so if
+   you want to enable joystick output on a board such as the Seeed
+   XIAO you must download and install this patched version:  
+     https://github.com/JingleheimerSE/ArduinoJoystickLibrary
+
+   Compiling for mouse output:  
+     For Seeed XIAO, select "Tools -> USB Stack -> TinyUSB"
+
+   Compiling for joystick output:  
+     For Seeed XIAO, select "Tools -> USB Stack -> Arduino"
+
+   Handy utility to test game controller emulation:  
+     https://gamepad-tester.com/
+
+   More information:  
      www.superhouse.tv/zerostick
 
-   To do:
+   To do:  
     - Zero offsets are currently hard-coded. These should be set at startup
       and when tare is run.
     - Do we need setZeroOffset() after calculateZeroOffset() in setup?
@@ -89,7 +103,7 @@
 
    Copyright 2019-2021 SuperHouse Automation Pty Ltd www.superhouse.tv
 */
-#define VERSION "2.4"
+#define VERSION "2.5"
 /*--------------------------- Configuration ---------------------------------*/
 // Configuration should be done in the included file:
 #include "config.h"
@@ -97,16 +111,24 @@
 /*--------------------------- Libraries -------------------------------------*/
 #include <Wire.h>
 #include "SparkFun_Qwiic_Scale_NAU7802_Arduino_Library.h" // Load cell amplifier
-#include <Adafruit_DS3502.h>        // Digital potentiometer
 #include <RunningMedian.h>          // By Rob Tillaart
 
+// Conditionally include the correct library based on target architecture
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
 #include "Adafruit_TinyUSB.h"       // HID emulation
 #endif
-
 #ifdef ARDUINO_AVR_LEONARDO
 #include "Mouse.h"                  // Mouse emulation
+#endif
+#endif
+
+#if ENABLE_JOYSTICK_OUTPUT
 #include <Joystick.h>               // Joystick emulation
+#endif
+
+#if ENABLE_DIGIPOT_OUTPUT
+#include <Adafruit_DS3502.h>        // Digital potentiometer
 #endif
 
 /*--------------------------- Global Variables ------------------------------*/
@@ -129,6 +151,7 @@ uint8_t  g_next_channel_to_read  = 0;   // 0 = X axis, 1 = Y axis
 uint8_t  g_channel_read_count    = 0;   // Accumulate how many times channel has been read
 int32_t  g_sensor_raw_value_sum  = 0;   // Accumulate channel readings
 
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
 //  HID report descriptor using TinyUSB's template.
 //  Single Report (no ID) descriptor
@@ -137,12 +160,10 @@ uint8_t const g_hid_descriptor_report[] =
   TUD_HID_REPORT_DESC_MOUSE()
 };
 #endif
+#endif
 
 /*--------------------------- Function Signatures ---------------------------*/
-/*
-  void     readInputPosition();
-  int16_t  getScaledLoadCellValueX();
-  int16_t  getScaledLoadCellValueY(); */
+
 
 /*--------------------------- Instantiate Global Objects --------------------*/
 // Load cells
@@ -151,8 +172,10 @@ NAU7802 loadcells;
 RunningMedian x_samples = RunningMedian(5);
 RunningMedian y_samples = RunningMedian(5);
 
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
 Adafruit_USBD_HID usb_hid;
+#endif
 #endif
 
 #if ENABLE_JOYSTICK_OUTPUT
@@ -183,10 +206,9 @@ void setup()
   Serial.print("ZeroStick starting up, v");
   Serial.println(VERSION);
 
-  if (ARDUINO_SEEED_XIAO_M0)
-  {
-    Serial.println("Xiao");
-  }
+#ifdef ARDUINO_SEEED_XIAO_M0
+  Serial.println("Xiao");
+#endif
 
   Wire.begin();
 
@@ -329,6 +351,7 @@ void updateMouseOutput()
 */
 void checkMouseButtons()
 {
+#if ENABLE_MOUSE_OUTPUT
   uint8_t left_button_state = digitalRead(MOUSE_LEFT_BUTTON_PIN);
   if (LOW == left_button_state)
   {
@@ -380,16 +403,19 @@ void checkMouseButtons()
   {
     if (LOW == g_right_button_state)
     {
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonRelease(0);
 #endif
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.release(MOUSE_RIGHT);
 #endif
+#endif
       Serial.println("release");
       g_right_button_state = HIGH;
     }
   }
+#endif
 }
 
 /**
@@ -402,6 +428,11 @@ void updateJoystickOutput()
   {
     if (millis() > g_last_joystick_time + JOYSTICK_INTERVAL)
     {
+#if ENABLE_JOYSTICK_DEBUGGING
+      Serial.print(g_input_x_position);
+      Serial.print("  ");
+      Serial.println(g_input_y_position);
+#endif
       Joystick.setYAxis((int)g_input_y_position);
       Joystick.setXAxis((int)g_input_x_position * -1);  // X axis is reversed
 
