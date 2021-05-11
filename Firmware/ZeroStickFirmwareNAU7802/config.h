@@ -5,13 +5,15 @@
 /* Output options */
 #define   ENABLE_DIGIPOT_OUTPUT     false
 #define   ENABLE_MOUSE_OUTPUT       false
-#define   ENABLE_JOYSTICK_OUTPUT    true
+#define   ENABLE_GAMEPAD_OUTPUT     true
+#define   ENABLE_JOYSTICK_OUTPUT    false  // Not currently implemented
 
 /* Debugging options */
 #define   ENABLE_DIGIPOT_DEBUGGING  false
 #define   ENABLE_MOUSE_DEBUGGING    false
+#define   ENABLE_GAMEPAD_DEBUGGING  false
 #define   ENABLE_JOYSTICK_DEBUGGING false
-#define   ENABLE_INPUT_DEBUGGING    false
+#define   ENABLE_INPUT_DEBUGGING    false  // Not currently implemented
 
 /* Input behaviour */
 #define   INPUT_FULL_SCALE_GRAMS    150  // Force required to achieve 100% full scale

@@ -40,22 +40,22 @@
 
    NOTE: The official Joystick library doesn't support SAMD, so if
    you want to enable joystick output on a board such as the Seeed
-   XIAO you must download and install this patched version:  
+   XIAO you must download and install this patched version:
      https://github.com/JingleheimerSE/ArduinoJoystickLibrary
 
-   Compiling for mouse output:  
+   Compiling for mouse output:
      For Seeed XIAO, select "Tools -> USB Stack -> TinyUSB"
 
-   Compiling for joystick output:  
+   Compiling for joystick output:
      For Seeed XIAO, select "Tools -> USB Stack -> Arduino"
 
-   Handy utility to test game controller emulation:  
+   Handy utility to test game controller emulation:
      https://gamepad-tester.com/
 
-   More information:  
+   More information:
      www.superhouse.tv/zerostick
 
-   To do:  
+   To do:
     - Zero offsets are currently hard-coded. These should be set at startup
       and when tare is run.
     - Do we need setZeroOffset() after calculateZeroOffset() in setup?
@@ -123,7 +123,7 @@
 #endif
 #endif
 
-#if ENABLE_JOYSTICK_OUTPUT
+#if ENABLE_GAMEPAD_OUTPUT
 #include <Joystick.h>               // Joystick emulation
 #endif
 
@@ -178,10 +178,10 @@ Adafruit_USBD_HID usb_hid;
 #endif
 #endif
 
-#if ENABLE_JOYSTICK_OUTPUT
-// Configure the virtual joystick device
+#if ENABLE_GAMEPAD_OUTPUT
+// Configure the virtual gamepad device
 Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD,
-                   1, 0,                  // Button Count, Hat Switch Count
+                   2, 0,                  // Button Count, Hat Switch Count
                    true, true, false,     // X and Y, but no Z Axis
                    false, false, false,   // No Rx, Ry, or Rz
                    false, false,          // No rudder or throttle
@@ -227,8 +227,8 @@ void setup()
 #endif
 #endif
 
-#if ENABLE_JOYSTICK_OUTPUT
-  // Initialise joystick emulation
+#if ENABLE_GAMEPAD_OUTPUT
+  // Initialise gamepad emulation
   Joystick.begin();
   Joystick.setXAxisRange(-JOYSTICK_AXIS_RANGE, JOYSTICK_AXIS_RANGE);
   Joystick.setYAxisRange(-JOYSTICK_AXIS_RANGE, JOYSTICK_AXIS_RANGE);
@@ -275,7 +275,7 @@ void setup()
 void loop()
 {
   checkTareButton();
-  checkMouseButtons();
+  checkInputButtons();
 
   readInputPosition();
 
@@ -346,17 +346,17 @@ void updateMouseOutput()
 }
 
 /**
-  Check whether mouse buttons have been pressed or released, and
-  send appropriate mouse events.
+  Check whether input buttons have been pressed or released, and
+  send appropriate mouse or gamepad events.
 */
-void checkMouseButtons()
+void checkInputButtons()
 {
-#if ENABLE_MOUSE_OUTPUT
   uint8_t left_button_state = digitalRead(MOUSE_LEFT_BUTTON_PIN);
   if (LOW == left_button_state)
   {
     if (HIGH == g_left_button_state)
     {
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 1);
       Serial.println("Xiao left click");
@@ -365,6 +365,11 @@ void checkMouseButtons()
       Mouse.press(MOUSE_LEFT);
       Serial.println("Leonardo left click");
 #endif
+#endif
+
+#if ENABLE_GAMEPAD_OUTPUT
+      Joystick.pressButton(0);
+#endif
       g_left_button_state = LOW;
     }
   }
@@ -372,11 +377,17 @@ void checkMouseButtons()
   {
     if (LOW == g_left_button_state)
     {
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonRelease(0);
 #endif
 #ifdef ARDUINO_AVR_LEONARDO
       Mouse.release(MOUSE_LEFT);
+#endif
+#endif
+
+#if ENABLE_GAMEPAD_OUTPUT
+      Joystick.releaseButton(0);
 #endif
       Serial.println("release");
       g_left_button_state = HIGH;
@@ -388,6 +399,7 @@ void checkMouseButtons()
   {
     if (HIGH == g_right_button_state)
     {
+#if ENABLE_MOUSE_OUTPUT
 #ifdef ARDUINO_SEEED_XIAO_M0
       usb_hid.mouseButtonPress(0, 2);
       Serial.println("Xiao right click");
@@ -396,9 +408,15 @@ void checkMouseButtons()
       Mouse.press(MOUSE_RIGHT);
       Serial.println("Leonardo right click");
 #endif
+#endif
+
+#if ENABLE_GAMEPAD_OUTPUT
+      Joystick.pressButton(1);
+#endif
       g_right_button_state = LOW;
     }
   }
+
   if (HIGH == right_button_state)
   {
     if (LOW == g_right_button_state)
@@ -411,11 +429,13 @@ void checkMouseButtons()
       Mouse.release(MOUSE_RIGHT);
 #endif
 #endif
+#if ENABLE_GAMEPAD_OUTPUT
+      Joystick.releaseButton(1);
+#endif
       Serial.println("release");
       g_right_button_state = HIGH;
     }
   }
-#endif
 }
 
 /**
@@ -423,12 +443,12 @@ void checkMouseButtons()
 */
 void updateJoystickOutput()
 {
-#if ENABLE_JOYSTICK_OUTPUT
+#if ENABLE_GAMEPAD_OUTPUT
   if (digitalRead(DISABLE_PIN) == HIGH) // Pull this pin low to disable
   {
     if (millis() > g_last_joystick_time + JOYSTICK_INTERVAL)
     {
-#if ENABLE_JOYSTICK_DEBUGGING
+#if ENABLE_GAMEPAD_DEBUGGING
       Serial.print(g_input_x_position);
       Serial.print("  ");
       Serial.println(g_input_y_position);
